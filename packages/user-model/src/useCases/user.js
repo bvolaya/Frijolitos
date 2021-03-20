@@ -1,6 +1,7 @@
 
+const UserModel = require("../entities/user");
 
-async function createdUser(UserModel,UserData) {
+async function createdUser(UserData) {
     try {
         const userInstance = await UserModel.create({
           firstName: UserData.firstName,

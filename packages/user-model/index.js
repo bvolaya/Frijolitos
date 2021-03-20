@@ -15,14 +15,4 @@ module.exports = async function (config) {
   await sequelize.authenticate();  
   await sequelize.sync({ force: true });
 
-  let userTest = {
-          firstName: "Petronas",
-          lastName: "Type",
-          mail: "example1@gmail.com",
-          password: "test1",
-  }      
-
-  await createdUser(userModel, userTest);
-  await createdUser(userModel, userTest);
-
 };
