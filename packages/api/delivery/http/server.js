@@ -2,6 +2,7 @@ const Fastify = require("fastify");
 
 async function start() {
   const fastify = Fastify({ logger: true });
+    fastify.register(require("fastify-cors"), {});
     fastify.register(require("./router/status"));
     fastify.register(require("./router/user"));
 

@@ -6,6 +6,7 @@
     <title>Login | health space</title>
     <link rel="preload" href="../css/estiloLR.css" as="style">
     <link rel="stylesheet" href="../css/estiloLR.css">
+    <script src="../js/login.js"></script>
 </head>
 <body class="color">
     <div class="login xs">
@@ -17,18 +18,29 @@
         </svg>
         </div>
             <h1>Login</h1>
-            <form action="" class="" method="">
+            <div>
                 <!--Usuario-->
                 <label for="username">Username</label>
-                <input type="text" name="" value="" placeholder="Username">
+                <input type="text" name="email" id="email" placeholder="Username" required>
                 <!--Password-->
                 <label for="Password">Password</label>
-                <input type="password" name="" value="" placeholder="Password">
+                <input type="password" name="contraseña" id="contraseña" placeholder="Password" required>
 
-                <input type="submit" value="Sing In">
+                <input onClick="login()" type="submit" id="button-login" value="Sing In">
                 <a href="#">Lost your password?</a><br>
                 <a href="#">Don't have an acount?</a>
-            </form>
+            </div>
     </div>
+    <footer>
+        <div class="contenedor">
+            <p class="copy">Salud Mental &copy; 2021</p>
+            <div class="sociales">
+                <label class="icon-facebook-squared" href="#"></label>
+                <label class="icon-twitter" href="#"></label>
+                <label class="icon-instagram" href="#"></label>
+                <label class="icon-gplus" href="#"></label>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
