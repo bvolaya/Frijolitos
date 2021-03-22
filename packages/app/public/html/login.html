@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | health space</title>
+    <link rel="preload" href="../css/estiloLR.css" as="style">
+    <link rel="stylesheet" href="../css/estiloLR.css">
+    <script src="../js/login.js"></script>
+</head>
+<body class="color">
+    <div class="login xs">
+        <div class="loginx">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="80" height="80" viewBox="0 0 24 24" stroke-width="1" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <line x1="10" y1="14" x2="21" y2="3" />
+            <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5" />
+        </svg>
+        </div>
+            <h1>Login</h1>
+            <div>
+                <!--Usuario-->
+                <label for="username">Username</label>
+                <input type="text" name="email" id="email" placeholder="Username" required>
+                <!--Password-->
+                <label for="Password">Password</label>
+                <input type="password" name="contraseña" id="contraseña" placeholder="Password" required>
+
+                <input onClick="login()" type="submit" id="button-login" value="Sing In">
+                <a href="#">Lost your password?</a><br>
+                <a href="#">Don't have an acount?</a>
+            </div>
+    </div>
+    <footer>
+        <div class="contenedor">
+            <p class="copy">Salud Mental &copy; 2021</p>
+            <div class="sociales">
+                <label class="icon-facebook-squared" href="#"></label>
+                <label class="icon-twitter" href="#"></label>
+                <label class="icon-instagram" href="#"></label>
+                <label class="icon-gplus" href="#"></label>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

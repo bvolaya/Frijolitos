@@ -1,7 +1,7 @@
 const { createdUser,login } = require("@frijol/user-model/src/useCases/user");
 
 async function createUser(req, reply) {
-  console.log("Req Creared " + req.body);
+
   const data = req.body;
   req.log.info(`Creating user ${data.firstName}`);
 

@@ -139,3 +139,5 @@ tmp/
 temp/
 
 # End of https://www.toptal.com/developers/gitignore/api/monodevelop,node
+
+.DS_Store
