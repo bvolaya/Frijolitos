@@ -5,23 +5,20 @@
   "author": "Jonattan Infante Vargas <jonattan@booklick.co>",
   "homepage": "https://github.com/bvolaya/Frijolitos#readme",
   "license": "ISC",
-  "main": "lib/activity-model.js",
+  "main": "src/main",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src"
   },
   "files": [
-    "lib"
+    "src"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bvolaya/Frijolitos.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "setup": "node setup.js"
   },
   "bugs": {
     "url": "https://github.com/bvolaya/Frijolitos/issues"
@@ -31,5 +28,8 @@
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
