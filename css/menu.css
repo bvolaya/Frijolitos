@@ -15,20 +15,20 @@ header label{
     left: 0;
     width: 100%;
     height: 200px;
-    background: #2E2E2E;
+    background: #ff8692;
 }
 .menu a {
     display: block;
-    color: #fff;
+    color: #e5eaf5;
     height: 50px;
     text-decoration: none;
     height: 50px;
     padding: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid #587ffc(255,255,255,0.3);
     
 }
 .menu a:hover{
-    background: rgba(255,255,255,0.3);
+    background: #92a5eaf5(255,255,255,0.3);
 }
 
 
@@ -38,4 +38,3 @@ header label{
     
     
     
-})
