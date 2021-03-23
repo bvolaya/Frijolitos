@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/bvolaya/Frijolitos#readme",
   "dependencies": {
+    "@frijol/activity-model": "^0.0.0",
     "@frijol/user-model": "^0.0.0",
     "fastify": "^3.14.0",
     "fastify-cors": "^5.2.0"
