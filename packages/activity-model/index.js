@@ -12,7 +12,7 @@ module.exports = async function (config) {
   const suscriptorModel = setupSuscriptorModel(config);
 
   userModel.hasMany(activitiesModel);
-  activitiesModel.belongsTo(userModel);
+  activitiesModel.belongsTo(userModel); 
 
   // Sync Model to Suscriptor
   activitiesModel.hasMany(suscriptorModel);

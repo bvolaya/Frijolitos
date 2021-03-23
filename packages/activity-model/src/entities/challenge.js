@@ -1,5 +1,7 @@
 const Sequelize = require("sequelize");
 const setupDatabase = require("../utils/conecion");
+const setupUserModel = require("@frijol/user-model/src/entities/user");
+
 
 module.exports = function setupChallengeModel(config) {
   const sequelize = setupDatabase(config);
@@ -23,7 +25,7 @@ module.exports = function setupChallengeModel(config) {
       allowNull: false,
     },
     date: {
-      type: Sequelize.DATE,
+      type: Sequelize.DATEONLY,
       allowNull: false,
     },
     image: {
@@ -37,9 +39,9 @@ module.exports = function setupChallengeModel(config) {
       allowNull: true,
     },
     isActive: {
-        type: Sequelize.BOOLEAN,
-        allowNull:false,
-        defaultValue: true
-    }
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
   });
 };
