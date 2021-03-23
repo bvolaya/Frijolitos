@@ -2,7 +2,7 @@ function login(){
     let contraseña=document.getElementById("contraseña").value;
     let email=document.getElementById("email").value;
 
-     let user = JSON.stringify({      
+    let user = JSON.stringify({
       mail: email,
       password: contraseña,
     });
@@ -27,9 +27,7 @@ function login(){
               throw new Error("Usuario no registrado");
           }else{
               throw new Error("Error Interno");
-          }
-          
-        })
+          }       })
       .then((result) => {
         console.log(result);
         alert("Succesfull Login");

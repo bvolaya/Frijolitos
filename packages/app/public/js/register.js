@@ -1,4 +1,4 @@
- function register(){
+function register(){
     let nombre=document.getElementById("nombre").value;
     let apellido=document.getElementById("apellido").value;
     let contraseña=document.getElementById("contraseña").value;
@@ -12,7 +12,7 @@
     });
 
     let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");  
+    myHeaders.append("Content-Type", "application/json");
 
     let requestOptions = {
       method: "POST",
@@ -33,5 +33,5 @@
       });
 
     //window.location.href = "file:///C:/Users/Krandon/Documents/Zoftware/Frijolitos/packages/app/html/index.html";
- }
+}
 

@@ -1,8 +1,8 @@
-    body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: linear-gradient(
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: linear-gradient(
 		0deg,
 		#1e1e5d,
 		#587ffc,
@@ -10,61 +10,54 @@
 		#e5eaf5,
 		#ff8692
 	);
-  }
-  
-  .Crear-evento {
-    width: 400px;
-    background: #65b5dd;
-    padding: 70px 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    font-family: 'bold';
-    color: white;
-    box-shadow: 7px 13px 37px #000;
-  }
-  
-  .Crear-evento h4 {
-    font-size: 30px;
-    margin-bottom: 20px;
-  }
-  
-  .controls {
-    border: none;
-	  border-bottom: 2px solid #fff;
-	  background: transparent;
-	  outline: none;
-	  height: 40px;
-	  color: #fff;
-	  font-size: 20px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .Crear-evento p {
-    height: 40px;
-    text-align: center;
-    font-size: 18px;
-    line-height: 40px;
-  }
-  
-  .Crear-evento a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .Crear-evento a:hover {
-    color: white;
-    text-decoration: underline;
-  }
-  
-  .Crear-evento .botons {
-    width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 12px;
-    color: white;
-    margin: 16px 0;
-    font-size: 16px;
-    border-radius: 20px;
-  }
+}
+.Crear-evento {
+	width: 400px;
+	background: #65b5dd;
+	padding: 70px 30px;
+	margin: auto;
+	margin-top: 100px;
+	border-radius: 4px;
+	font-family: "bold";
+	color: white;
+	box-shadow: 7px 13px 37px #000;
+}
+.Crear-evento h4 {
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.controls {
+	border: none;
+	border-bottom: 2px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 20px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.Crear-evento p {
+	height: 40px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 40px;
+}
+.Crear-evento a {
+	color: white;
+	text-decoration: none;
+}
+.Crear-evento a:hover {
+	color: white;
+	text-decoration: underline;
+}
+.Crear-evento .botons {
+	width: 100%;
+	background: #1f53c5;
+	border: none;
+	padding: 12px;
+	color: white;
+	margin: 16px 0;
+	font-size: 16px;
+	border-radius: 20px;
+}
