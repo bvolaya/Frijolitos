@@ -1,5 +1,5 @@
 
-const db = require("../user-model/index");
+const db = require("./index");
 
 async function setup() {
   const config = {
