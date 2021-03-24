@@ -54,6 +54,8 @@ function getData() {
         .then((result) => {
             console.log(result)
             alert("Actividad creada")
+            window.location.href =
+              "http://localhost:5000/html/tableroDeEventos.html";
         })
         .catch((error) => {
             console.log("error", error);
