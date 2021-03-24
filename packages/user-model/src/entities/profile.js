@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const setupDatabase = require("../utils/conecion");
+const setupDatabase = require("../../../activity-model/src/utils/conecion");
 
 module.exports = function setupProfileModel(config) {
     

@@ -1,0 +1,29 @@
+#img1 {
+    margin-top: 50px;
+}
+#img1 img{
+    width: 100%
+        heigth:100%;
+}
+#img1 .contenedor{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+}
+#img1 h2{
+    font-size: 28 px;
+}
+#img1 a{
+    display: block;
+    width: 100px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px
+        margin-top:10px;
+    border: 3px solid #fff;
+}
+#img1 a : hover{
+/*    background: rgba(30,30,30,0.5);*/
+}
