@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-@import url(menu.css);
+@import url(menuAc.css);
 @import url(img1.css);
 @import url(blog.css);
 @import url(info.css);
@@ -57,38 +57,3 @@ footer .sociales label {
 	text-decoration: none;
 }
 
-#adopta {
-	background-color: #587ffc;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	padding: 10px;
-	border-radius: 20px;
-}
-.rojo {
-	padding: 10px;
-	text-decoration: none;
-	border-radius: 20px;
-	background-color: #43a0df;
-	color: white;
-}
-.otra {
-	padding: 4px;
-	background-color: #000;
-	color: white;
-}
-#adopta:hover {
-	background-color: aqua;
-}
-
-#leermas {
-	background-color: #587ffc;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	padding: 10px;
-	border-radius: 20px;
-}
-#leermasinfo {
-	display: none;
-}
