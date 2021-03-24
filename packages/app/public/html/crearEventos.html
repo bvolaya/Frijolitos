@@ -12,13 +12,15 @@
     <h4>Crear un evento</h4>
     <input class="controls" type="text" name="palabras" id="palabras" placeholder="Ingrese las palabras claves de su evento">
     <input class="controls" type="text" name="nombreEvento" id="nombreEvento" placeholder="Ingrese el nombre del evento">
-    Ingrese la fecha del evento:
+    <b>Ingrese la fecha del evento:</b>
     <input class="controls" type="date" name="fecha" id="fecha">
     <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese la direccion del evento">
-    <textarea name="textarea" rows="8" cols="47">Ingrese una descripción del evento</textarea>
+    <b>Ingrese una descripción del evento:</b>
+    <textarea name="textarea" id="descripcion" rows="8" cols="47"></textarea>
     <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-    <input class="botons" type="submit" value="Crear">
+    <input class="botons" type="button" onclick="getData()" value="Crear">
     <p><a href="#">volver</a></p>
   </section>
+  <script src="../js/crearEvento.js"></script>
 </body>
 </html>
