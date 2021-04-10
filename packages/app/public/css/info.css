@@ -1,20 +1,27 @@
-#info{
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+:root {
+	--blanco: #ffffff;
+	--negro: #000000;
+	--primario: #36bed9;
+	--secundario: #323333;
+	--opcional: #e6e6e6;
 }
-#info .contenedor{
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: center;
+#info {
+	background: var(--opcional);
+	color: var(--negro);
+	text-align: center;
+	padding: 20px;
 }
-.info-pet{
-    margin: 20px;
+#info .contenedor {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
-.info-pet img{
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 7px solid #fff;
+.info-pet {
+	margin: 20px;
+}
+.info-pet img {
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
+	border: 7px solid var(--blanco);
 }
