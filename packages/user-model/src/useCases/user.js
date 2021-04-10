@@ -1,6 +1,12 @@
 
 const env = require('../../config/enviroment')
 const  setupUserModel = require("../entities/user");
+<<<<<<< HEAD
+=======
+const { QueryTypes } = require("sequelize");
+const setupDatabase = require("../utils/conecion");
+const sequelize = setupDatabase(env);
+>>>>>>> 1fff1920f0e0268a95a45800add6585cd4ff791c
 
 async function createdUser(UserData) {
   
@@ -23,14 +29,24 @@ async function login(UserData) {
   try {
     const userInstance = await setupUserModel(env).findAll({
       where: {
-        mail: UserData.mail
-      }
+        mail: UserData.mail,
+      },
+      attributes: [
+        "id",
+        "firstName",
+        "lastName",
+        "mail",
+        "isVerify",
+        "password",
+      ],
     });
+
 
     if (userInstance.length == 0) {
       throw new Error("The User don't exist");
     } else if (userInstance[0].password == UserData.password) {
       return {
+        id:userInstance[0].id,
         firstName: userInstance[0].firstName,
         lastName: userInstance[0].lastName,
         mail: userInstance[0].mail,

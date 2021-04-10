@@ -13,10 +13,13 @@ header label{
     top: 50px;
     left: 80%;
     width: 20%;
-    height: 150px;
+    height: 200px;
     background: #2E2E2E;
 	transition: all 0.5s;
     text-align: left;
+    transform: translateX(-100%);
+    transform: translateY(0%);
+    
 
 }
 .menu a {

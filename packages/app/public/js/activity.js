@@ -24,6 +24,7 @@ function obtenerActividad (){
                 div2.className = "service-item"
                 let h3 = document.createElement("h3");
                 h3.textContent = data[index].title
+                h3.style = "color: black;";
                 let p = document.createElement("p");
                 p.textContent = data[index].description
                 let a = document.createElement("a");
@@ -44,4 +45,11 @@ function obtenerActividad (){
         })
         .catch(error => console.log('error', error));
 
+<<<<<<< HEAD
+=======
+}
+
+function logout() {
+    sessionStorage.clear()
+>>>>>>> 1fff1920f0e0268a95a45800add6585cd4ff791c
 }
