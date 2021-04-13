@@ -18,7 +18,6 @@ async function createUser(req, reply) {
       .headers("Content-Type", "application/json; charset=utf-8")
       .send({ data: "Error Interno" });
   }
-  
 }
 
 async function loginUser(req, reply) {
