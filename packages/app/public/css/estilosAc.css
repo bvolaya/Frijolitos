@@ -3,7 +3,13 @@
 @import url(img1.css);
 @import url(blog.css);
 @import url(info.css);
-
+:root {
+	--blanco: #ffffff;
+	--negro: #000000;
+	--primario: #36bed9;
+	--secundario: #323333;
+	--opcional: #e6e6e6;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -13,8 +19,8 @@
 header {
 	width: 100%;
 	height: 50px;
-	background: #333;
-	color: #fff;
+	background: var(--primario);
+	color: var(--blanco);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -56,42 +62,3 @@ footer .sociales label {
 	color: #333;
 	text-decoration: none;
 }
-
-<<<<<<< HEAD
-#adopta {
-	background-color: #587ffc;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	padding: 10px;
-	border-radius: 20px;
-}
-.rojo {
-	padding: 10px;
-	text-decoration: none;
-	border-radius: 20px;
-	background-color: #43a0df;
-	color: white;
-}
-.otra {
-	padding: 4px;
-	background-color: #000;
-	color: white;
-}
-#adopta:hover {
-	background-color: aqua;
-}
-
-#leermas {
-	background-color: #587ffc;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	padding: 10px;
-	border-radius: 20px;
-}
-#leermasinfo {
-	display: none;
-}
-=======
->>>>>>> 1fff1920f0e0268a95a45800add6585cd4ff791c
