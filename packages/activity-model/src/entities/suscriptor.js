@@ -1,10 +1,8 @@
 const Sequelize = require("sequelize");
-const setupDatabase = require("../utils/conecion");
+const sequelize = require("postgres-db-connect");
 
-module.exports = function setupSuscriptorModel(config) {
-  const sequelize = setupDatabase(config);
-
-  return sequelize.define("suscriptor", {    
+module.exports = function setupSuscriptorModel() {
+   return sequelize.define("suscriptor", {    
     isActive: {
       type: Sequelize.BOOLEAN,
       allowNull: false,

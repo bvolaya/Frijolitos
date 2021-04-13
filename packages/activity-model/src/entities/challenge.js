@@ -1,10 +1,7 @@
 const Sequelize = require("sequelize");
-const setupDatabase = require("../utils/conecion");
-const setupUserModel = require("@frijol/user-model/src/entities/user");
+const sequelize = require("postgres-db-connect");
 
-
-module.exports = function setupChallengeModel(config) {
-  const sequelize = setupDatabase(config);
+module.exports = function setupChallengeModel() {  
 
   return sequelize.define("challenge", {
     id: {
