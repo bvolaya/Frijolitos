@@ -1,0 +1,36 @@
+{
+  "name": "postgres-db-connect",
+  "version": "1.0.0",
+  "description": "Module that provide the connection to data base",
+  "keywords": [
+    "postgres"
+  ],
+  "author": "Jonattan Infante Vargas",
+  "homepage": "https://github.com/bvolaya/Frijolitos#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvolaya/Frijolitos.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/bvolaya/Frijolitos/issues"
+  },
+  "dependencies": {
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2"
+  }
+}

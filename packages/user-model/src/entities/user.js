@@ -1,15 +1,14 @@
 const Sequelize = require("sequelize");
-const setupDatabase = require("../utils/conecion");
+const sequelize = require("postgres-db-connect");
 
-module.exports = function setupUserModel(config) {
-  const sequelize = setupDatabase(config);
+module.exports = function setupUserModel() {  
 
   return sequelize.define("user", {
     id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-  },
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     firstName: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -21,14 +20,15 @@ module.exports = function setupUserModel(config) {
     mail: {
       type: Sequelize.STRING,
       allowNull: false,
+      unique: true,
     },
     isVerify: {
       type: Sequelize.BOOLEAN,
-      defaultValue:false      
+      defaultValue: true,
     },
     password: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
   });
 };

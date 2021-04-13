@@ -30,11 +30,12 @@ function login(){
           }       })
       .then((result) => {
         console.log(result);
-        alert("Succesfull Login");
+        sessionStorage.setItem("user", result);
+        window.location.href =
+          "http://localhost:5000/html/tableroDeEventos.html";
       })
       .catch((error) => {
         console.log("error", error);
         alert("Revisa las Credenciales");
       });
-    //window.location.href = "file:///C:/Users/Krandon/Documents/Zoftware/Frijolitos/packages/app/html/index.html";
 }

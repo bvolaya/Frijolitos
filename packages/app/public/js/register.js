@@ -24,8 +24,10 @@ function register(){
     fetch("http://localhost:3000/register", requestOptions)
       .then((response) => response.text())
       .then((result) => {
-        console.log(result)
-        alert("Succesfull Login")
+        console.log(result)    
+        sessionStorage.setItem("user", result);
+        window.location.href =
+          "http://localhost:5000/html/tableroDeEventos.html";
       })
       .catch((error) => {
         console.log("error", error);
