@@ -1,8 +1,11 @@
 {
-  "name": "@frijol/activity-model",
-  "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "Jonattan Infante Vargas <jonattan@booklick.co>",
+  "name": "postgres-db-connect",
+  "version": "1.0.0",
+  "description": "Module that provide the connection to data base",
+  "keywords": [
+    "postgres"
+  ],
+  "author": "Jonattan Infante Vargas",
   "homepage": "https://github.com/bvolaya/Frijolitos#readme",
   "license": "ISC",
   "main": "src/index.js",
@@ -12,23 +15,22 @@
   "files": [
     "src"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bvolaya/Frijolitos.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
-    "setup": "node setup.js"
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/bvolaya/Frijolitos/issues"
   },
   "dependencies": {
-    "@frijol/user-model": "^0.0.0",
-    "postgres-db-connect": "^1.0.0",
-    "sequelize": "^6.6.0"
-  },
-  "publishConfig": {
-    "access": "public"
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2"
   }
 }

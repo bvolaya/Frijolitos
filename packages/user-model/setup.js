@@ -1,26 +1,16 @@
 
-const db = require("../user-model/index");
+const sequelize = require("postgres-db-connect");
 
+const setupUserModel = require("./src/entities/user");
+const setupProfileModel = require("./src/entities/profile");
 async function setup() {
-  const config = {
-    database: process.env.DB_NAME || "postgres",
-    username: process.env.DB_USER || "postgres",
-    password: process.env.DB_PASS || "mysecretpassword",
-    host: process.env.DB_HOST || "localhost",
-    dialect: "postgres",
-    setup: true,
-  };
+  const userModel = setupUserModel();
+  const profileModel = setupProfileModel();
 
-  await db(config).catch(handleFatalError);
+  userModel.hasOne(profileModel);
+  profileModel.belongsTo(userModel);
+  await sequelize.authenticate();
+  await sequelize.sync({ force: true });
+};
 
-  console.log("Success!");
-  process.exit(0);
-}
-
-function handleFatalError(err) {
-  console.error(err.message);
-  console.error(err.stack);
-  process.exit(1);
-}
-
-setup();
+setup()

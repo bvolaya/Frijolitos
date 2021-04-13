@@ -1,10 +1,8 @@
 const Sequelize = require("sequelize");
-const setupDatabase = require("../../../activity-model/src/utils/conecion");
+const sequelize = require("postgres-db-connect");
 
 module.exports = function setupProfileModel(config) {
-    
-  const sequelize = setupDatabase(config);
-
+  
   return sequelize.define("profile", {
     nickName: {
       type: Sequelize.STRING,
@@ -17,6 +15,6 @@ module.exports = function setupProfileModel(config) {
     rol: {
       type: Sequelize.STRING,
       allowNull: false,
-    }
+    },
   });
 };

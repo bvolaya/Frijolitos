@@ -1,8 +1,7 @@
 const Sequelize = require("sequelize");
-const setupDatabase = require("../../../user-model/src/utils/conecion");
+const sequelize = require("postgres-db-connect");
 
-module.exports = function setupUserModel(config) {
-  const sequelize = setupDatabase(config);
+module.exports = function setupUserModel() {  
 
   return sequelize.define("user", {
     id: {

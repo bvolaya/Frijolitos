@@ -5,13 +5,13 @@
    "keywords": [],
    "author": "Jonattan Infante Vargas <jonattan@booklick.co>",
    "license": "ISC",
-  "main": "src/main",
-  "directories": {
-    "src": "src"
-  },
-  "files": [
-    "src"
-  ],
+   "main": "src/main",
+   "directories": {
+      "src": "src"
+   },
+   "files": [
+      "src"
+   ],
    "repository": {
       "type": "git",
       "url": "git+https://github.com/bvolaya/Frijolitos.git"
@@ -24,9 +24,8 @@
       "url": "https://github.com/bvolaya/Frijolitos/issues"
    },
    "homepage": "https://github.com/bvolaya/Frijolitos#readme",
-   "dependencies": {
-      "pg": "^8.5.1",
-      "pg-hstore": "^2.3.3",
+   "dependencies": {      
+      "postgres-db-connect": "^1.0.0",
       "sequelize": "^6.5.1"
    },
    "devDependencies": {

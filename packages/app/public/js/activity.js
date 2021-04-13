@@ -45,8 +45,11 @@ function obtenerActividad (){
         })
         .catch(error => console.log('error', error));
 
+<<<<<<< HEAD
+=======
 }
 
 function logout() {
     sessionStorage.clear()
+>>>>>>> 1fff1920f0e0268a95a45800add6585cd4ff791c
 }

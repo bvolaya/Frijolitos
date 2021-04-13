@@ -1,10 +1,8 @@
 
-const env = require("../../config/enviroment");
 const setupActivityModel = require("../entities/challenge");
 const setupUserModel = require("@frijol/user-model/src/entities/user");
 const { QueryTypes } = require("sequelize");
-const setupDatabase = require("../utils/conecion");
-const sequelize = setupDatabase(env);
+const sequelize = require("postgres-db-connect");
 
 async function createdActivity(ActivityData) {
     const {
@@ -26,12 +24,12 @@ async function createdActivity(ActivityData) {
         ) {
             throw new Error("Invalid Information")
         }
-/*         let user = await setupUserModel(env).findOne({
+/*         let user = await setupUserModel().findOne({
           where: {
             id: userId,
           },
         });
-        let activity = await setupActivityModel(env).create(
+        let activity = await setupActivityModel().create(
           {
             title,
             description,
@@ -57,7 +55,7 @@ async function createdActivity(ActivityData) {
 
 async function getAllActivity() {
     try {
-        const activities = await setupActivityModel(env).findAll();
+        const activities = await setupActivityModel().findAll();
         return activities;
     } catch (error) {
         throw new Error(error.message);

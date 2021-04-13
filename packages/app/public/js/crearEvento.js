@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+var getData = function () {
+    var palabras = document.getElementById("palabras").value;
+    var nombreEvento = document.getElementById("nombreEvento").value;
+    var fecha = document.getElementById("fecha").value;
+    var direccion = document.getElementById("direccion").value;
+    var descripcion = document.getElementById("descripcion").value;
+=======
 function getData() {
     let categoria = document.getElementById("palabras").value;
     let nombreEvento = document.getElementById("nombreEvento").value;
     let fecha = document.getElementById("fecha").value;
     let direccion = document.getElementById("direccion").value;
     let descripcion = document.getElementById("descripcion").value;
+>>>>>>> 1fff1920f0e0268a95a45800add6585cd4ff791c
 
     if (palabras == "") {
         document.getElementById("palabras").focus();
