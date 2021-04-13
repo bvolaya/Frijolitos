@@ -1,18 +1,11 @@
 
-const env = require('../../config/enviroment')
 const  setupUserModel = require("../entities/user");
-<<<<<<< HEAD
-=======
-const { QueryTypes } = require("sequelize");
-const setupDatabase = require("../utils/conecion");
-const sequelize = setupDatabase(env);
->>>>>>> 1fff1920f0e0268a95a45800add6585cd4ff791c
 
 async function createdUser(UserData) {
   
 
     try {
-        const userInstance = await setupUserModel(env).create({
+        const userInstance = await setupUserModel().create({
           firstName: UserData.firstName,
           lastName: UserData.lastName,
           mail: UserData.mail,
@@ -27,7 +20,7 @@ async function createdUser(UserData) {
 
 async function login(UserData) {
   try {
-    const userInstance = await setupUserModel(env).findAll({
+    const userInstance = await setupUserModel().findAll({
       where: {
         mail: UserData.mail,
       },
