@@ -1,0 +1,33 @@
+{
+  "name": "@frijoles/search",
+  "version": "1.0.0",
+  "description": "This module is think to provider service search",
+  "author": "Jonattan Infante Vargas <jonattan@booklick.co>",
+  "homepage": "https://github.com/bvolaya/Frijolitos#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvolaya/Frijolitos.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/bvolaya/Frijolitos/issues"
+  },
+  "dependencies": {
+    "postgres-db-connect": "^1.0.0",
+    "sequelize": "^6.6.2"
+  }
+}
