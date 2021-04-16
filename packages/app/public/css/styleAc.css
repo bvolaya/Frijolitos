@@ -43,6 +43,12 @@ a:focus {
 	text-decoration: none;
 }
 
+.sombra {
+	-webkit-box-shadow: 3px 11px 14px 0px rgba(0, 0, 0, 0.69);
+	-moz-box-shadow: 3px 11px 14px 0px rgba(0, 0, 0, 0.69);
+	box-shadow: 3px 11px 14px 0px rgba(0, 0, 0, 0.69);
+}
+
 .btn:focus,
 .form-control:focus {
 	box-shadow: none;
@@ -523,13 +529,12 @@ body {
 
 
 
-h1,
 h2, 
 h3, 
 h4,
 h5, 
 h6 {
-    color: #f2f5f8;
+    color: var(--negro);
     font-family: 'Oswald', sans-serif;
 }
 

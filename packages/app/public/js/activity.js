@@ -19,7 +19,7 @@ function obtenerActividad (){
             let data = JSON.parse(result).data;
             for (let index = 0; index < data.length; index++) {
                 let div1 = document.createElement("div");
-                div1.className = "col-lg-3 col-md-6" 
+                div1.className = "col-lg-3 col-md-6 sombra" 
                 let div2 = document.createElement("div");
                 div2.className = "service-item"
                 let h3 = document.createElement("h3");
