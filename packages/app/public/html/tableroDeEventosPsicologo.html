@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Tablero De Actividades</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <link rel="stylesheet" type="text/css" href="../alertifyjs/css/alertify.css">
+	    <link rel="stylesheet" type="text/css" href="../alertifyjs/css/themes/default.css">
+
+	    <script src="../jquery-3.2.1.min.js"></script>
+	    <script src="../alertifyjs/alertify.js"></script>
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="../lib/animate/animate.min.css" rel="stylesheet">
+        <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="../css/styleAc.css" rel="stylesheet">
+        <link href="../css/menuAc.css" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preload" href="../css/styleAc.css" as="style">
+        <link rel="stylesheet" href="../css/styleAc.css">
+        <script src="../js/main.js"></script>
+        <link rel="stylesheet" href="../css/fontelloAc.css">
+        <link rel="stylesheet" href="../css/styleAc.css">
+        <link rel="stylesheet" href="../css/estilosAc.css">
+        <link rel="stylesheet" href="../css/menuAc.css">
+        <script src="../js/activity.js"></script>
+
+    </head>
+    <!-- Menu -->
+    <header>
+        <div class= "contenedor">
+            <h1>HEALTH SPACE</h1>
+            <input type="checkbox" id="menu-bar">
+            <label class="icon-menu" for = "menu-bar" ></label>
+            <nav class="menu">
+                <a href="perfilUsuario.html">Mi Perfil</a>
+                <a href="tableroDeEventos.html" >Actividades</a>
+                <a href="crearEventos.html">Crear Evento</a>
+                <a href="index.html">salir</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <body>
+
+        <!-- Service Start -->
+        <div class="service">
+            <div class="container">
+                <div class="section-header">
+                    <h2>TABLERO DE ACTIVIDADES</h2>
+                </div>
+                <div id = "alert" class="row padre">
+                    <div class="col-lg-3 col-md-6 sombra">
+                        <div class="service-item">
+                            <h3>Escuela de Familias</h3>
+                            <p>
+                                Este programa consiste en el desarrollo de sistemas de apoyo social a familias o allegados de personas con enfermedad mental a través de programas de psicoeducación (escuelas de familias) y la potenciación y desarrollo de redes de ayuda mutua.
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3>Acompañamiento Integral</h3>
+                            <p>
+                                La actividad de Acompañamiento integral tiene como objetivo favorecer el desarrollo de la autonomía personal e integración en la comunidad de las personas con enfermedad mental a través de apoyos integrales. 
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3>Charla Hábitos saludables</h3>
+                            <p>
+                                Actividad orientada a facilitar la adquisición, elección y mantenimiento de prácticas saludables evitando así las de riesgo; es la búsqueda de conocimientos, actitudes y comportamientos de las personas con enfermedad mental en el sentido de una salud positiva.
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        </div> 
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3>Respiro Natural</h3>
+                            <p>
+                                El objetivo principal de la actividad es favorecer la convivencia familiar, proporcionando oportunidades de respiro a las personas con enfermedad y a los/as familiares con los que conviven, a través de la realización de actividades específicas para las personas con enfermedad mental.
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3>Psicoeducación</h3>
+                            <p>
+                                Se trata de intervenciones encaminadas a que el usuario tome conciencia de su enfermedad y explicar el diagnóstico, síntomas, causas, fases da enfermedad, identificación de pródromos y factores de riesgo y protección.
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3>Sensibilización</h3>
+                            <p>
+                                Favorecer la imagen social del colectivo y fomentar su presencia positiva en los medios de comunicación. Emprender acciones de lucha contra el estigma y desarrollar campañas de sensibilización para concienciar sobre la importancia de la salud mental a la sociedad en su conjunto.
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3>Yoga</h3>
+                            <p>
+                                El yoga mejora las puntuaciones de los síntomas generales de ansiedad y depresión.
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3>Zumba</h3>
+                            <p>
+                                Bailar zumba mejora la salud emocional, funcionamiento físico, vitalidad y estado de salud general.
+                            </p>
+                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
+                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+        <!-- Service End -->
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+                $('#unirse').click(function(){
+                    alertify.success('Te has unido a la actividad');
+                
+                });
+            })
+        </script>
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="../lib/easing/easing.min.js"></script>
+        <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="../lib/waypoints/waypoints.min.js"></script>
+        <script src="../lib/counterup/counterup.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="../mail/jqBootstrapValidation.min.js"></script>
+        <script src="../mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="../js/main.js"></script>
+    </body>
+</html>

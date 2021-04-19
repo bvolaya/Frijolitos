@@ -13,7 +13,8 @@ switch (process.env.NODE_ENV) {
 
     default:
         environment = "DEV_";
-        pathEnv = path.resolve("../postgres-db-connect",'.env')
+
+        pathEnv = path.resolve(__dirname,"..",'.env')
         break;
 }
 
