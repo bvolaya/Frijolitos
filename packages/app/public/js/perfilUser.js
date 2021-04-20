@@ -133,5 +133,6 @@ function eliminarActividad(id){
             alertify.error("Error del servidor");
           });
 
+          
     }
 }
