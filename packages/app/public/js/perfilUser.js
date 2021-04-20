@@ -101,9 +101,7 @@ function eliminarActividad(id){
    
     if (confirm("¿Está seguro de eliminar la actividad?")){
         let data = JSON.stringify({
-            id: id.split('_')[1],
-
-
+            suscriptorId: id.split('_')[1]
           });
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -111,6 +109,7 @@ function eliminarActividad(id){
         let requestOptions = {
           method: "POST",
           headers: myHeaders,
+          body, data,
           redirect: "follow",
         };
         
@@ -126,11 +125,12 @@ function eliminarActividad(id){
           .then((result) => {
             console.log(result);
             document.getElementById(id).parentElement.parentElement.remove()
+            alertify.success('¡Te has salido de la actividad!');
             
           })
           .catch((error) => {
             console.log("error", error);
-            alert("Error del servidor");
+            alertify.error("Error del servidor");
           });
 
     }
