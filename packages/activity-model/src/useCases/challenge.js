@@ -42,8 +42,10 @@ async function getAllActivity(id) {
         let activities = await sequelize.query(`
         select * from challenges
         where challenges."isActive" and 
-           challenges.id not in(select "challengeId" from suscriptors where suscriptors."isActive" and suscriptors."userId" = ${id})`)
-        return activities[0];
+           challenges.id not in(select "challengeId" from suscriptors where suscriptors."isActive" and suscriptors."userId" = ${id});`
+            , { type: QueryTypes.SELECT }
+        )
+        return activities;
     } catch (error) {
         throw new Error(error.message);
     }    
@@ -54,9 +56,12 @@ async function getActivityByUser(id) {
   try {
     if (!id) throw new Error("The Id is Require")   
     const activities = await sequelize.query(
-      `SELECT * FROM challenges WHERE "userId" = ${id}`
+      `SELECT challenges.id,title,description,direction,date,image,categorie, s."isActive" as status FROM challenges
+        inner join suscriptors s on challenges.id = s."challengeId"
+        where s."userId" = ${id} and s."isActive" = true;`,
+        { type: QueryTypes.SELECT }
     );
-    return activities[0];
+    return activities;
   } catch (error) {
     throw new Error(error.message);
   }
