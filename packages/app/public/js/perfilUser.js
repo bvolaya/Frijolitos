@@ -1,13 +1,15 @@
-let user =
+/*let user =
     {
         "id":1,
-        "firstName":"Camila Andrea",
+        "firstName":"jonas Andrea",
         "lastName": "Gomez",
         "mail":"gomez@gmail.com", 
         image: "camila.jpg", 
         "isVerify":true
     }
-    
+
+ */
+let user = JSON.parse(sessionStorage.getItem('user')).data
 let actividades = [
     {
         id:1,
@@ -26,6 +28,8 @@ let actividades = [
     }
 ]
 
+
+
 if (document.addEventListener){
     window.addEventListener('load',insertUser(user),false);
     window.addEventListener('load',insertAgenda(actividades),false);
@@ -34,6 +38,8 @@ if (document.addEventListener){
     window.attachEvent('onload',insertUser(user));
     window.attachEvent('onload',insertAgenda(actividades));
 }
+
+
 
 function insertUser(data) {
     var div = document.getElementById("perfil")
@@ -44,7 +50,7 @@ function insertUser(data) {
             let div1 = document.createElement("div")
             div1.className = "col-12 my-13 pt-3 shadow"
             let img = document.createElement("img");
-            img.src = "../img/"+data.image 
+            img.src = "../img/camila.jpg"
             img.className = "float-left rounded-circle mr-2"
             let h1 = document.createElement("h1");
             h1.textContent = data.firstName+' '+data.lastName
