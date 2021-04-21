@@ -32,11 +32,11 @@ async function deleteSuscriptor(req, reply) {
   );
 
   try {
-    const activity = await deleteSuscritor(data.suscriptorId);
+    await deleteSuscritor(data.suscriptorId);
     reply
-      .code(201)
+      .code(200)
       .headers("Content-Type", "application/json; charset=utf-8")
-      .send({ data: activity });
+      .send({ data: '¡Te has salido de la actividad!' });
   } catch (error) {
     req.log.error(
       `Error to delete SuscriptorId ${suscriptorId} because ${error.message}`

@@ -125,7 +125,7 @@ function eliminarActividad(id){
           .then((result) => {
             console.log(result);
             document.getElementById(id).parentElement.parentElement.remove()
-            alertify.success('¡Te has salido de la actividad!');
+            alertify.success(result);
             
           })
           .catch((error) => {
