@@ -27,10 +27,12 @@ async function createdActivities(req, reply) {
 
 
 async function getAllActivities(req, reply) {
+
+  const { userId } = req.params;
   req.log.info(`Search activity ......`);
 
   try {
-    const activity = await getAllActivity();
+    const activity = await getAllActivity(userId);
     reply
       .code(200)
       .headers("Content-Type", "application/json; charset=utf-8")
