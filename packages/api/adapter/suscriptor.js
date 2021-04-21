@@ -24,4 +24,28 @@ async function createSuscriptors(req, reply) {
   }
 }
 
-module.exports= {createSuscriptors}
+async function deleteSuscriptor(req, reply) {
+  const data = req.body;
+
+  req.log.info(
+    `Deleting SuscriptorId ${data.suscriptorId}`
+  );
+
+  try {
+    await deleteSuscritor(data.suscriptorId);
+    reply
+      .code(200)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: '¡Te has salido de la actividad!' });
+  } catch (error) {
+    req.log.error(
+      `Error to delete SuscriptorId ${suscriptorId} because ${error.message}`
+    );
+    reply
+      .code(500)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: "Error Interno " + error.message });
+  }
+}
+
+module.exports = { createSuscriptors, deleteSuscriptor }
