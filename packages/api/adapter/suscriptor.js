@@ -1,4 +1,4 @@
-const {createSuscritor} = require('@frijol/activity-model')
+const {createSuscritor,deleteSuscriptor} = require('@frijol/activity-model')
 
 async function createSuscriptors(req, reply) {
   const data = req.body;
@@ -24,7 +24,7 @@ async function createSuscriptors(req, reply) {
   }
 }
 
-async function deleteSuscriptor(req, reply) {
+async function deleteSuscrip(req, reply) {
   const data = req.body;
 
   req.log.info(
@@ -48,4 +48,4 @@ async function deleteSuscriptor(req, reply) {
   }
 }
 
-module.exports = { createSuscriptors, deleteSuscriptor }
+module.exports = { createSuscriptors, deleteSuscrip }
