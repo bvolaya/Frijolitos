@@ -29,13 +29,24 @@ header {
 .contenedor {
 	width: 98%;
 	margin: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.search {
+	align-self: center;
+}
+.search input {
+	border: 0;
+	border-radius: 8px;
+	width: 530px;
+	height: 25px;
+	padding: 15px;
 }
 h1 {
 	float: left;
 }
-header .contenedor {
-	display: table;
-}
+
 section {
 	width: 100%;
 	margin-botton: 25px;

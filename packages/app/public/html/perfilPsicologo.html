@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Tablero Actividades|Health Space</title>
+        <title>Pérfil User|Health Space</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
         <link rel="stylesheet" type="text/css" href="../alertifyjs/css/alertify.css">
@@ -10,16 +10,15 @@
 
 	    <script src="../jquery-3.2.1.min.js"></script>
 	    <script src="../alertifyjs/alertify.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+        
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="../lib/animate/animate.min.css" rel="stylesheet">
         <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
 
         <!-- Template Stylesheet -->
         <link href="../css/styleAc.css" rel="stylesheet">
@@ -33,56 +32,38 @@
         <link rel="stylesheet" href="../css/styleAc.css">
         <link rel="stylesheet" href="../css/estilosAc.css">
         <link rel="stylesheet" href="../css/menuAc.css">
-        <link rel="stylesheet" href="../css/normallize.css">
-    <link rel="stylesheet" type="text/css" href="../css/stylend.css">
-        <script src="../js/activity.js"></script>
+        
+
     </head>
     <!-- Menu -->
     <header>
         <div class= "contenedor">
             <h1>HEALTH SPACE</h1>
-            <div class="search">
-                <input id="busqueda" onkeyup="search(event)" type="search" name="busqueda" placeholder="Futbol, Psicologia, Cocinar ....">
-                <img src="../img/search/search.svg" alt="">
-            </div>
             <input type="checkbox" id="menu-bar">
-            <label class="icon-menu" for = "menu-bar" ></label>
+            <label class="icon-menu" for = "menu-bar" id="icon-menu"></label>
             <nav class="menu">
                 <a href="perfilUsuario.html">Mi Perfil</a>
                 <a href="tableroDeEventos.html" >Actividades</a>
                 <a href=" ">Ver Dashboard</a>
-                <a onclick="logout()" href="index.html">salir</a>
-
+                <a href="index.html">salir</a>
             </nav>
         </div>
     </header>
 
     <body>
-        <!-- Service Start -->
-        <div class="service">
-            <div class="container">
-                <div class="section-header">
-                    <h2>TABLERO DE ACTIVIDADES</h2>
-                </div>
-                <div id = "alert" class="row padre">
+
+        <div class = "sevice">
+            <div class= "contenedor1" id="perfil">
+                <div class="col-12 my-13 pt-3 shadow">
+                    <hr>
                 </div>
             </div>
         </div>
         <!-- Service End -->
         <!-- Service End -->
 
-        <script type="text/javascript">
-
-            $(document).ready(function(){
-                $('#unirse').click(function(){
-                    alertify.success('Te has unido a la actividad');
-                });
-            })
-        </script>
-
+    
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-        
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -91,11 +72,14 @@
         <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="../lib/waypoints/waypoints.min.js"></script>
         <script src="../lib/counterup/counterup.min.js"></script>
+        
         <!-- Contact Javascript File -->
         <script src="../mail/jqBootstrapValidation.min.js"></script>
         <script src="../mail/contact.js"></script>
 
         <!-- Template Javascript -->
         <script src="../js/main.js"></script>
+        <script src="../js/perfilPsicologo.js"></script>
     </body>
 </html>
+
