@@ -21,7 +21,8 @@
     "url": "git+https://github.com/bvolaya/Frijolitos.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "dev": "node server.js"
   },
   "bugs": {
     "url": "https://github.com/bvolaya/Frijolitos/issues"

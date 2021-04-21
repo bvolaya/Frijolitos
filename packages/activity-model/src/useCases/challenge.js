@@ -24,22 +24,6 @@ async function createdActivity(ActivityData) {
         ) {
             throw new Error("Invalid Information")
         }
-/*         let user = await setupUserModel().findOne({
-          where: {
-            id: userId,
-          },
-        });
-        let activity = await setupActivityModel().create(
-          {
-            title,
-            description,
-            direction,
-            date,
-            image,
-            categorie,
-            user: userId,
-          }
-        ); */
 
         let activity = await sequelize.query(
           `INSERT INTO challenges (title,direction, description, date, categorie,"createdAt","updatedAt","userId")
@@ -53,10 +37,13 @@ async function createdActivity(ActivityData) {
     }
 }
 
-async function getAllActivity() {
+async function getAllActivity(id) {
     try {
-        const activities = await setupActivityModel().findAll();
-        return activities;
+        let activities = await sequelize.query(`
+        select * from challenges
+        where challenges."isActive" and 
+           challenges.id not in(select "challengeId" from suscriptors where suscriptors."isActive" and suscriptors."userId" = ${id})`)
+        return activities[0];
     } catch (error) {
         throw new Error(error.message);
     }    
