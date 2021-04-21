@@ -6,7 +6,7 @@ async function createUserPsicologos(req, reply) {
   req.log.info(`Creating user ${data.firstName}`);
 
   try {
-    const User = await createdUserPsicologos(data);
+    const User = await createdUser(data);
     reply
       .code(201)
       .headers("Content-Type", "application/json; charset=utf-8")
@@ -56,6 +56,6 @@ async function loginUser(req, reply) {
 }
 
 module.exports = {
-  createUser,
+  createUserPsicologos,
   loginUser,
 };

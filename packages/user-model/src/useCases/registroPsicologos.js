@@ -1,6 +1,6 @@
 const  setupUserModel = require("../entities/registroPsicologos");
-const multer = require('multer');
-async function createdUserPsicologos(UserData) {
+
+async function createdUser(UserData) {
   
 
     try {
@@ -65,4 +65,4 @@ async function login(UserData) {
     throw new Error(error.message);
   }
 }
-module.exports = { createdUserPsicologos, login };
+module.exports = { createdUser, login };
