@@ -44,7 +44,7 @@ async function deleteSuscriptor(suscriptorId) {
       `UPDATE suscriptors SET 'isActive'=false, 'updatedAt'=now() WHERE id=${suscriptorId}`,
       { type: QueryTypes.UPDATE }
     );
-    
+
   } catch (error) {
     logger.error(
       `[fr-activity-module]: Error al eliminar un suscriptor :${error.message}`
