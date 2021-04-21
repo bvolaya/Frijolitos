@@ -20,6 +20,7 @@ async function createUserPsicologos(req, reply) {
   }
 }
 
+
 async function loginUser(req, reply) {
   console.log("Req" + req.body);
   const data = req.body;

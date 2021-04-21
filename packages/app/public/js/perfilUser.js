@@ -32,11 +32,11 @@ let actividades = [
 
 if (document.addEventListener){
     window.addEventListener('load',insertUser(user),false);
-    window.addEventListener('load',insertAgenda(actividades),false);
+    window.addEventListener('load',insertAgenda(),false);
 
 } else {
     window.attachEvent('onload',insertUser(user));
-    window.attachEvent('onload',insertAgenda(actividades));
+    window.attachEvent('onload',insertAgenda());
 }
 
 
@@ -72,35 +72,47 @@ function insertUser(data) {
     }
 }
 
-function insertAgenda(data) {
+function insertAgenda() {
     const div = document.querySelector(".contenedor2")
     let divFather = document.createElement("div")
         divFather.className = "row padre";
-    if (data.length > 0){
-        for (let index = 0; index < data.length; index++) {
-            let div1 = document.createElement("div");
-            div1.className = "col-lg-3 col-md-6 sombra"
-            let div2 = document.createElement("div");
-            div2.className = "service-item"
-            let h3 = document.createElement("h3");
-            h3.textContent = data[index].title
-            h3.style = "color: black;";
-            let p = document.createElement("p");
-            p.textContent = data[index].description
-            let a = document.createElement("a");
-            a.id = "Activ_"+data[index].id
-            a.href = "javascript:eliminarActividad('Activ_"+data[index].id+"')";
-            a.style = "padding: 2px; background-color: rgb(70, 143, 238); color: white;"
-            a.textContent = "Eliminar Actividad"
-            
-            div2.appendChild(h3)
-            div2.appendChild(p)
-            div2.appendChild(a)
-            div1.appendChild(div2)
-            divFather.appendChild(div1);
-            div.appendChild(divFather);
-        }
-    }
+    let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch(`http://localhost:3000/activities/${idUser}/profile`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            let data = JSON.parse(result).data;
+            if (data.length > 0){
+                for (let index = 0; index < data.length; index++) {
+                    let div1 = document.createElement("div");
+                    div1.className = "col-lg-3 col-md-6 sombra"
+                    let div2 = document.createElement("div");
+                    div2.className = "service-item"
+                    let h3 = document.createElement("h3");
+                    h3.textContent = data[index].title
+                    h3.style = "color: black;";
+                    let p = document.createElement("p");
+                    p.textContent = data[index].description
+                    let a = document.createElement("a");
+                    a.id = "Activ_"+data[index].id
+                    a.href = "javascript:eliminarActividad('Activ_"+data[index].id+"')";
+                    a.style = "padding: 2px; background-color: rgb(70, 143, 238); color: white;"
+                    a.textContent = "Eliminar Actividad"
+
+                    div2.appendChild(h3)
+                    div2.appendChild(p)
+                    div2.appendChild(a)
+                    div1.appendChild(div2)
+                    divFather.appendChild(div1);
+                    div.appendChild(divFather);
+                }
+            }
+        })
+        .catch(error => console.log('error', error));
     
 }
 function eliminarActividad(id){

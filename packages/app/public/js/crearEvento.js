@@ -5,6 +5,14 @@ var getData = function () {
     var direccion = document.getElementById("direccion").value;
     var descripcion = document.getElementById("descripcion").value;
 
+function getData() {
+    let categoria = document.getElementById("palabras").value;
+    let nombreEvento = document.getElementById("nombreEvento").value;
+    let fecha = document.getElementById("fecha").value;
+    let direccion = document.getElementById("direccion").value;
+    let descripcion = document.getElementById("descripcion").value;
+
+
     function getData() {
         let categoria = document.getElementById("palabras").value;
         let nombreEvento = document.getElementById("nombreEvento").value;
