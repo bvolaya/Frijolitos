@@ -41,7 +41,7 @@ async function deleteSuscriptor(suscriptorId) {
     }
 
     let deleteSuscriptor = await sequelize.query(
-      `UPDATE suscriptors SET 'isActive'=false, 'updatedAt'=now() WHERE id=${suscriptorId}`,
+      `UPDATE suscriptors SET "isActive"=false, "updatedAt"=now() WHERE id=${suscriptorId}`,
       { type: QueryTypes.UPDATE }
     );
 
