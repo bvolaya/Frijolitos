@@ -6,7 +6,12 @@ module.exports = function setupSuscriptorModel() {
     isActive: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
-      defaultValue: true,
+      defaultValue: true
     },
+       state: {
+           type: Sequelize.STRING,
+           allowNull: false,
+           defaultValue: "process"
+       }
   });
 };
