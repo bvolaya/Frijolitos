@@ -16,6 +16,8 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+.alinear {
 	text-align: justify;
 }
 body {
@@ -103,7 +105,6 @@ footer .sociales label {
 }
 
 #leermas {
-	
 	background-color: var(--primario);
 	color: var(--blanco);
 	border: none;

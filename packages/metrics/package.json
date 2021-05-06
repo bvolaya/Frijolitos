@@ -1,0 +1,26 @@
+{
+  "name": "metrics",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Jonattan Infante Vargas <jonattan@booklick.co>",
+  "homepage": "https://github.com/bvolaya/Frijolitos#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvolaya/Frijolitos.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/bvolaya/Frijolitos/issues"
+  }
+}

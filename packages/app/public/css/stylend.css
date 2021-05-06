@@ -195,16 +195,20 @@ body {
 .details {
 	position: relative;
 	width: 100%;
-	padding: 1.2rem;
+	padding: 1.6rem;
 	padding-top: 0;
 	display: grid;
+	grid-gap: 1.5rem;
 	grid-template-columns: 2fr 1fr;
 }
 .details .recentOrders {
 	position: relative;
 	display: grid;
-	min-height: 33rem;
-	margin-right: 5rem;
+	min-height: 10rem;
+	background: var(--blanco);
+	margin-right: 3rem;
+	border-radius: 0.5rem;
+	padding: 1.5rem;
 }
 .cardHeader {
 	display: flex;
@@ -213,4 +217,253 @@ body {
 }
 .cardHeader h2 {
 	font-weight: 600;
+}
+.btn {
+	position: relative;
+	margin-top: 1.2rem;
+	padding: 0.3rem 0.8rem;
+	background: var(--primario);
+	color: var(--blanco);
+	text-decoration: none;
+	border-radius: 0.6rem;
+}
+.btn-r {
+	position: relative;
+	margin-top: 1.2rem;
+	padding: 0.3rem 0.8rem;
+	background: var(--secundario);
+	color: var(--blanco);
+	text-decoration: none;
+	border-radius: 0.6rem;
+}
+.details table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 0.8rem;
+}
+.details table thead td {
+	font-weight: 600;
+}
+.details .recentOrders table tr {
+	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+.details .recentOrders table tbody tr:last-child {
+	border-bottom: none;
+}
+.details .recentOrders table tbody tr:hover {
+	background: var(--negro);
+	color: var(--blanco);
+}
+.details .recentOrders table tr td {
+	padding: 0.8rem 0.4rem;
+}
+.details .recentOrders table thead tr td:last-child,
+.details .recentOrders table tbody tr td:last-child {
+	text-align: right;
+}
+.details .recentOrders table thead tr td:nth-child(2),
+.details .recentOrders table tbody tr td:nth-child(2) {
+	text-align: right;
+	padding-right: 1.3rem;
+}
+.details .recentOrders table thead tr td:nth-child(3),
+.details .recentOrders table tbody tr td:nth-child(3) {
+	text-align: center;
+}
+.status {
+	padding-right: 2rem;
+	padding-left: 2rem;
+}
+.details .recentCustomers {
+	position: relative;
+	display: grid;
+	min-height: 1.5rem;
+	background: var(--blanco);
+	padding: 1.5rem;
+	border-radius: 0.5rem;
+	width: 22rem;
+}
+@media (max-width: 58rem) {
+	.navigation {
+		left: -300px;
+	}
+	.navigation .active {
+		left: 0rem;
+		width: 300px;
+	}
+	.main {
+		width: 100%;
+		left: 0;
+	}
+	.main .active {
+		width: calc(100% - 300px);
+		left: 300px;
+	}
+	.cardbox {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.details {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+@media (max-width: 480px) {
+	.cardHeader h2 {
+		font-weight: 600;
+		font-size: 18px;
+	}
+	.details .recentOrders {
+		overflow-x: auto;
+	}
+	.details .recentOrders table {
+		width: 600px;
+	}
+	.navigation {
+		width: 100%;
+		left: -100%;
+		z-index: 1000;
+	}
+	.navigation .active {
+		width: 100%;
+		left: 0;
+	}
+	.toggle .active {
+		z-index: 1000;
+		right: 0;
+		left: initial;
+		position: fixed;
+	}
+	.toggle .active:before {
+		color: var(--blanco);
+	}
+	.main,
+	.main .active {
+		width: 100%;
+		left: 0;
+	}
+}
+/* ##############
+Craer evento
+#################*/
+.Crear-evento {
+	width: 500px;
+	background: var(--primario);
+	padding: 40px 30px;
+	margin: auto;
+	margin-top: 80px;
+	border-radius: 4px;
+	font-family: "bold";
+	color: var(--blanco);
+}
+.Crear-evento h4 {
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.controls {
+	border: none;
+	border-bottom: 2px solid var(--blanco);
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: var(--blanco);
+	font-size: 20px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.Crear-evento p {
+	height: 40px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 40px;
+}
+.Crear-evento a {
+	color: var(--blanco);
+	text-decoration: none;
+}
+.Crear-evento a:hover {
+	color: var(--negro);
+	text-decoration: none;
+}
+
+.Crear-evento .botons {
+	width: 100%;
+	background: var(--blanco);
+	border: none;
+	padding: 12px;
+	color: var(--negro);
+	margin: 16px 0;
+	font-size: 16px;
+	border-radius: 20px;
+}
+.contenedor {
+	width: 98%;
+	margin: auto;
+}
+
+h1 {
+	float: left;
+}
+header .contenedor {
+	display: table;
+}
+section {
+	width: 100%;
+	margin-botton: 25px;
+}
+#bienvenidos {
+	text-align: center;
+	padding: 60px 30px;
+}
+footer .contenedor {
+	text-align: center;
+	flex-wrap: wrap;
+	justify-context: center;
+	padding-bottom: 25px;
+}
+.copy {
+	font-size: 20px;
+}
+footer .sociales {
+	width: 100%;
+	text-align: center;
+	font-size: 28px;
+}
+footer .sociales label {
+	color: var(--secundario);
+	text-decoration: none;
+}
+
+#adopta {
+	background-color: var(--primario);
+	color: var(--blanco);
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 10px;
+}
+.rojo {
+	padding: 10px;
+	text-decoration: none;
+	border-radius: 10px;
+	background-color: var(--primario);
+	color: var(--blanco);
+}
+.otra {
+	padding: 4px;
+	background-color: var(--primario);
+	color: white;
+}
+#adopta:hover {
+	background-color: aqua;
+}
+
+#leermas {
+	background-color: var(--primario);
+	color: var(--blanco);
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 10px;
+}
+#leermasinfo {
+	display: none;
 }
