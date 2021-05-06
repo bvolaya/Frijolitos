@@ -3,6 +3,7 @@
 @import url(img1.css);
 @import url(blog.css);
 @import url(info.css);
+
 :root {
 	--blanco: #ffffff;
 	--negro: #000000;
@@ -27,8 +28,8 @@ header {
 	z-index: 100;
 }
 .contenedor {
-	width: 98%;
-	margin: auto;
+	width: 30%;
+	margin: ;
 	display: flex;
 	justify-content: space-between;
 }
@@ -49,7 +50,7 @@ h1 {
 
 section {
 	width: 100%;
-	margin-botton: 25px;
+	margin-bottom: 25px;
 }
 #bienvenidos {
 	text-align: center;
@@ -58,7 +59,7 @@ section {
 footer .contenedor {
 	text-align: center;
 	flex-wrap: wrap;
-	justify-context: center;
+	justify-content: center;
 	padding-bottom: 25px;
 }
 .copy {

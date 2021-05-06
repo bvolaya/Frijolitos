@@ -16,12 +16,18 @@
 	flex-wrap: wrap;
 	justify-content: center;
 }
-.info-pet {
-	margin: 20px;
+.info-act {
+	margin: 30px;
 }
-.info-pet img {
-	width: 180px;
-	height: 180px;
-	border-radius: 50%;
+.info-act img {
+	width: 300px;
+	height: 300px;
 	border: 7px solid var(--blanco);
+}
+.info__columna{
+    background: #cfd7d8;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin-bottom: 30px;
+	justify-content: center;
 }
