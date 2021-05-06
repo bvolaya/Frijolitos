@@ -73,8 +73,11 @@ async function modifyActivity(changeActivity){
         }
         let fields = ''
         for (let field in changeActivity){
-            if (field !== "id" && field !== "userId"){
+            if (field !== "id" && field !== "userId" && field !== "isActive"){
                 fields += `${field}='${changeActivity[field]}',`
+            }
+            if (field === "isActive") {
+                fields += `"${field}"=${changeActivity[field]},`
             }
         }
         fields = fields.substring(0, fields.length - 1)
