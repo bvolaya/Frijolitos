@@ -1,8 +1,9 @@
 const {
-  createdActivity,
+  createActivity,
   getAllActivity,
-  getActivityByUser
-} = require("@frijol/activity-model/src/useCases/challenge");
+  getActivityByUser,
+  changeActivity
+} = require("@frijol/activity-model");
 
 
 async function createdActivities(req, reply) {
@@ -10,7 +11,7 @@ async function createdActivities(req, reply) {
   req.log.info(`Creating activity ${data.title}`);
 
   try {
-    const activity = await createdActivity(data);
+    const activity = await createActivity(data);
     reply
       .code(201)
       .headers("Content-Type", "application/json; charset=utf-8")
@@ -24,7 +25,30 @@ async function createdActivities(req, reply) {
   }
   
 }
+async function changeActivities(req, reply) {
+  const data = req.body;
+  req.log.info(`Change activity ${data.title}`);
+  try {
+    const activity = await changeActivity(data);
+    reply
+        .code(201)
+        .headers("Content-Type", "application/json; charset=utf-8")
+        .send({
+          status:201,
+          data: activity
+        });
+  } catch (error) {
+    console.log(error);
+    reply
+        .code(500)
+        .headers("Content-Type", "application/json; charset=utf-8")
+        .send({
+          status:500,
+          data: "Error Interno " + error.message
+        });
+  }
 
+}
 
 async function getAllActivities(req, reply) {
 
@@ -66,4 +90,4 @@ async function getActivitiesByUser(req, reply) {
   }
 }
 
-module.exports = { createdActivities, getAllActivities, getActivitiesByUser };
+module.exports = { createdActivities, getAllActivities, getActivitiesByUser,changeActivities };
