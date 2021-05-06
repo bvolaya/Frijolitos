@@ -1,6 +1,5 @@
 
-const setupActivityModel = require("../entities/challenge");
-const setupUserModel = require("@frijol/user-model/src/entities/user");
+
 const { QueryTypes } = require("sequelize");
 const sequelize = require("postgres-db-connect");
 
@@ -67,4 +66,25 @@ async function getActivityByUser(id) {
   }
 }
 
-module.exports = { createdActivity, getAllActivity, getActivityByUser };
+async function modifyActivity(changeActivity){
+    try{
+        if (!changeActivity) {
+            throw new Error("Invalid Input, We need the information about the activity")
+        }
+        let fields = ''
+        for (let field in changeActivity){
+            if (field !== "id" && field !== "userId"){
+                fields += `${field}='${changeActivity[field]}',`
+            }
+        }
+        fields = fields.substring(0, fields.length - 1)
+
+        let query = `UPDATE challenges set ${fields} WHERE challenges.id = ${changeActivity.id} RETURNING id,title,direction, description, date, image, categorie;`
+        let result =  await sequelize.query(query, {type: QueryTypes.UPDATE})
+        return result[0][0]
+    }catch (e) {
+        console.log(e.message)
+    }
+}
+
+module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity};
