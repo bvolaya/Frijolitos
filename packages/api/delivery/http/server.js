@@ -7,6 +7,7 @@ async function start() {
     fastify.register(require("./router/user"));
     fastify.register(require("./router/challange"));
     fastify.register(require("./router/search"));
+  fastify.register(require("./router/metric"));
 
   try {
     await fastify.listen(process.env.SERVER_PORT || 3000);
