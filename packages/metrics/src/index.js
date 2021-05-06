@@ -1,5 +1,5 @@
-const {getBasicMetrics} = require('./useCases')
+const {metric} = require('./useCases')
 
 module.exports = {
-    basicMetrics : getBasicMetrics()
+    basicMetrics : metric.getBasicMetrics
 }

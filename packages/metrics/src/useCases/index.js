@@ -1,6 +1,6 @@
-const {getBasicMetrics} = require('./metrics')
+const metric = require('./metrics')
 
 
 module.exports = {
-    getBasicMetrics
+    metric
 }
