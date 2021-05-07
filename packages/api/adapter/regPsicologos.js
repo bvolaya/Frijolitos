@@ -1,4 +1,4 @@
-const { createdUserPsicologos,login } = require("@frijol/user-model/src/useCases/registroPsicologos");
+const { createdUserPsicologos,login } = require("@frijol/user-model/src/useCases/userPsicologo");
 
 async function createdUserPsicologos(req, reply) {
 

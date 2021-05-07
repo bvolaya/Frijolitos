@@ -39,7 +39,7 @@ var getData = function () {
             redirect: "follow",
         };
 
-        fetch("http://localhost:3000/registroPsicologos", requestOptions)
+        fetch("http://localhost:5000/registroPsicologos", requestOptions)
             .then((response) => response.text())
             .then((result) => {
                 console.log(result)
