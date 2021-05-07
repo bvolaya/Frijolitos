@@ -140,6 +140,7 @@ function insertActivitiesToDom(data) {
     }else{
         let p = document.createElement("p");
         p.textContent = "No encontramos actividades para mostrarte 🤦‍♂️"
+        p.className = "subcards"
         divFather.appendChild(p);
         div.appendChild(divFather);
     }
