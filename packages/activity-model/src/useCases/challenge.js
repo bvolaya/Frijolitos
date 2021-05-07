@@ -25,8 +25,8 @@ async function createdActivity(ActivityData) {
         }
 
         let activity = await sequelize.query(
-          `INSERT INTO challenges (title,direction, description, date, categorie,"createdAt","updatedAt","userId")
-        VALUES ('${title}','${direction}', '${description}', '${date}', '${categorie}', now(),now(), ${userId}) RETURNING id,title,direction, description, date, categorie;`,
+          `INSERT INTO challenges (title,direction, description, "image" ,date, categorie,"createdAt","updatedAt","userId")
+        VALUES ('${title}','${direction}', '${description}', '${image}', '${date}', '${categorie}', now(),now(), ${userId}) RETURNING id,title,direction, description, date, categorie;`,
           { type: QueryTypes.INSERT }
         );
 

@@ -1,176 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Tablero Actividades|Health Space</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-        <link rel="stylesheet" type="text/css" href="../alertifyjs/css/alertify.css">
-	    <link rel="stylesheet" type="text/css" href="../alertifyjs/css/themes/default.css">
-
-	    <script src="../jquery-3.2.1.min.js"></script>
-	    <script src="../alertifyjs/alertify.js"></script>
-
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
-        
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="../lib/animate/animate.min.css" rel="stylesheet">
-        <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="../css/styleAc.css" rel="stylesheet">
-        <link href="../css/menuAc.css" rel="stylesheet">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preload" href="../css/styleAc.css" as="style">
-        <link rel="stylesheet" href="../css/styleAc.css">
-        <script src="../js/main.js"></script>
-        <link rel="stylesheet" href="../css/fontelloAc.css">
-        <link rel="stylesheet" href="../css/styleAc.css">
-        <link rel="stylesheet" href="../css/estilosAc.css">
-        <link rel="stylesheet" href="../css/menuAc.css">
-        <script src="../js/activity.js"></script>
-
-    </head>
-    <!-- Menu -->
-    <header>
-        <div class= "contenedor">
-            <h1>HEALTH SPACE</h1>
-            <input type="checkbox" id="menu-bar">
-            <label class="icon-menu" for = "menu-bar" ></label>
-            <nav class="menu">
-                <a href="perfilUsuario.html">Mi Perfil</a>
-                <a href="tableroDeEventos.html" >Actividades</a>
-                <a href="crearEventos.html">Crear Evento</a>
-                <a href="index.html">salir</a>
-                
-            </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TableroEventos|Psicologo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" 
+    integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/normallize.css">
+    <link rel="stylesheet" type="text/css" href="../css/stylend.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <li>
+                        <a href="">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#36bed9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                                <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg></i></span>
+                            <span class="title"><h2>Health Space</h2></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tableroDeEventosPsicologo.html">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                <rect x="10" y="12" width="4" height="4" />
+                            </svg></span>
+                            <span class="title">Eventos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashPerfilPsicologo.html">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <circle cx="12" cy="7" r="4" />
+                                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                            </svg></span>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashPsicologo.html">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-messenger" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
+                                <path d="M8 13l3 -2l2 2l3 -2" />
+                            </svg></span>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <circle cx="12" cy="12" r="9" />
+                                <line x1="12" y1="17" x2="12" y2="17.01" />
+                                <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" />
+                            </svg></span>
+                            <span class="title">Help</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg></span>
+                            <span class="title">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashCrearEvento.html">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg></span>
+                            <span class="title">Create event</span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="index.html">
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="4" y1="12" x2="14" y2="12" />
+                            <line x1="4" y1="12" x2="8" y2="16" />
+                            <line x1="4" y1="12" x2="8" y2="8" />
+                            <line x1="20" y1="4" x2="20" y2="20" />
+                        </svg></span>
+                        <span class="title">Sing out</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
-
-    <body>
-
-        <!-- Service Start -->
-        <div class="service">
-            <div class="container">
-                <div class="section-header">
-                    <h2>TABLERO DE ACTIVIDADES</h2>
+        <div class="main">
+            <dir class="topbar">
+                <div class="toggle" onclick="toggleMenu()">
+                    <a href="crearEventos.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="4" y1="6" x2="20" y2="6" />
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <line x1="4" y1="18" x2="20" y2="18" />
+                        </svg>
+                    </a>
                 </div>
-                <div id = "alert" class="row padre">
-                    <div class="col-lg-3 col-md-6 sombra">
-                        <div class="service-item">
-                            <h3>Escuela de Familias</h3>
-                            <p>
-                                Este programa consiste en el desarrollo de sistemas de apoyo social a familias o allegados de personas con enfermedad mental a través de programas de psicoeducación (escuelas de familias) y la potenciación y desarrollo de redes de ayuda mutua.
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <h3>Acompañamiento Integral</h3>
-                            <p>
-                                La actividad de Acompañamiento integral tiene como objetivo favorecer el desarrollo de la autonomía personal e integración en la comunidad de las personas con enfermedad mental a través de apoyos integrales. 
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <h3>Charla Hábitos saludables</h3>
-                            <p>
-                                Actividad orientada a facilitar la adquisición, elección y mantenimiento de prácticas saludables evitando así las de riesgo; es la búsqueda de conocimientos, actitudes y comportamientos de las personas con enfermedad mental en el sentido de una salud positiva.
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div> 
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <h3>Respiro Natural</h3>
-                            <p>
-                                El objetivo principal de la actividad es favorecer la convivencia familiar, proporcionando oportunidades de respiro a las personas con enfermedad y a los/as familiares con los que conviven, a través de la realización de actividades específicas para las personas con enfermedad mental.
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <h3>Psicoeducación</h3>
-                            <p>
-                                Se trata de intervenciones encaminadas a que el usuario tome conciencia de su enfermedad y explicar el diagnóstico, síntomas, causas, fases da enfermedad, identificación de pródromos y factores de riesgo y protección.
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <h3>Sensibilización</h3>
-                            <p>
-                                Favorecer la imagen social del colectivo y fomentar su presencia positiva en los medios de comunicación. Emprender acciones de lucha contra el estigma y desarrollar campañas de sensibilización para concienciar sobre la importancia de la salud mental a la sociedad en su conjunto.
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <h3>Yoga</h3>
-                            <p>
-                                El yoga mejora las puntuaciones de los síntomas generales de ansiedad y depresión.
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <h3>Zumba</h3>
-                            <p>
-                                Bailar zumba mejora la salud emocional, funcionamiento físico, vitalidad y estado de salud general.
-                            </p>
-                            <a id= "Modificar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Modificar</a>
-                            <a id= "eliminar" style="padding: 2px; background-color: rgb(70, 143, 238); color: white;">Eliminar</a>
-                        </div>
+                <div class="search">
+                    <label>
+                    <!-- <input type="text" placeholder="search here">-->
+                    </label>
+                </div>
+                <div class="user">
+                    <div class="imagen">
+                        <img src="../img/perfil.jpg" alt="">
                     </div>
                 </div>
             </div>
+            <div class="cardbox">
+                <!-- <div class="card sombra">
+                </div> -->
+            -->
+                <div class="card sombra">
+                    <div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">I created event</div>
+                    </div>
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-plus" width="50" height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#36bed9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="4" width="16" height="16" rx="2" />
+                            <line x1="9" y1="12" x2="15" y2="12" />
+                            <line x1="12" y1="9" x2="12" y2="15" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <!-- <div class="card sombra">
+                    <div class="actividadParticipante">
+                        <div>
+                            <h3>Escuela de Familias</h1>
+                            <img src="../img/bici.jpg" >
+                            <h4>Cl. 63 #45-10 </h4>
+                            <h5>16/05/2021</h5>
+                            <p>
+                                Este programa consiste en el desarrollo de sistemas de apoyo social a familias o allegados de personas con enfermedad mental a través de programas de psicoeducación (escuelas de familias) y la potenciación y desarrollo de redes de ayuda mutua.
+                            </p>
+                            <a id= "Modificar" class="btn">Modificar</a>
+                            <a id= "eliminar" class="btn-r">Eliminar</a>
+                        </div>
+                    </div> 
+                </div> -->
+            </div> -->
         </div>
-        <!-- Service End -->
-        <!-- Service End -->
+    </div>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/prueba2.js"></script> 
+    
 
-        <script type="text/javascript">
-
-            $(document).ready(function(){
-                $('#unirse').click(function(){
-                    alertify.success('Te has unido a la actividad');
-                
-                });
-            })
-        </script>
-
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="../lib/easing/easing.min.js"></script>
-        <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="../lib/waypoints/waypoints.min.js"></script>
-        <script src="../lib/counterup/counterup.min.js"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="../mail/jqBootstrapValidation.min.js"></script>
-        <script src="../mail/contact.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="../js/main.js"></script>
-    </body>
+</body>
 </html>
+
+
+            <!--
+                <div class="card sombra">
+                    <div class= "contenedor1" id="perfil">
+                        <div class="col-12 my-13 pt-3 shadow">
+                            <hr>
+                            <div class="contenedor2">
+                                <div class="section-header">
+                                    <h2>Lista de Actividades</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
