@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../css/stylend.css">
 </head>
 <body>
-    <div class="containerr">
+    <div class="container">
         <div class="navigation">
             <ul>
                 <li>
@@ -35,17 +35,17 @@
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
-                <!--<li>
-                    <a href="#">
+                <li>
+                    <a href="">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-messenger" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
                             <path d="M8 13l3 -2l2 2l3 -2" />
                         </svg></span>
-                        <span class="title">Blog</span>
+                        <span class="title">Eventos</span>
                     </a>
-                </li>-->
-                <li>
+                </li>
+                <!-- <li>
                     <a href="">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -55,9 +55,9 @@
                         </svg></span>
                         <span class="title">Help</span>
                     </a>
-                </li>
+                </li>-->
                 <li>
-                    <a href="dashPerfilPsicologo.html">
+                    <a href="dashUsuario.html">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <circle cx="12" cy="7" r="4" />
@@ -66,7 +66,7 @@
                         <span class="title">Profile</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -75,9 +75,9 @@
                         </svg></span>
                         <span class="title">Settings</span>
                     </a>
-                </li>
-                <li>
-                    <a href="dashCrearEventoPsicologo.html">
+                </li>-->
+                <!-- <li>
+                    <a href="dashCrearEvento.html">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <line x1="12" y1="5" x2="12" y2="19" />
@@ -85,9 +85,9 @@
                         </svg></span>
                         <span class="title">Create event</span>
                     </a>
-                </li>
+                </li>-->
                 <li>
-                    <a href="">
+                    <a href="../html/index.html">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <line x1="4" y1="12" x2="14" y2="12" />
@@ -112,7 +112,9 @@
                 </div>
                 <div class="search">
                     <label>
-                    <!-- <input type="text" placeholder="search here">-->
+                    <div class="search">
+                        <input id="busqueda" onkeyup="search(event)" type="search" name="busqueda" placeholder="Futbol, Psicologia, Cocinar ....">
+                    </div>
                     </label>
                 </div>
                 <div class="user">
@@ -121,60 +123,46 @@
                     </div>
                 </div>
             </dir>
-                <!--
-                    ###############
-                    Aqui agregar
-                    ###############
-                -->
-
-                <div class="details">
-                    <dir class="recentOrders">
-                        <center>
-                            <div class="cardbox centrar">
-                                    <section class="Crear-evento sombra">
-                                        <h4>Crear un evento</h4>
-                                        <input class="controls" type="text" name="palabras" id="palabras" placeholder="Ingrese la categoria">
-                                        <input class="controls" type="text" name="nombreEvento" id="nombreEvento" placeholder="Ingrese el nombre del evento">
-                                        <b>Ingrese la fecha del evento:</b>
-                                        <input class="controls" type="date" name="fecha" id="fecha">
-                                        <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese la direccion del evento">
-                                        <b>Ingrese una descripción del Evento:</b>
-                                        <textarea name="textarea" id="descripcion" rows="3" cols="60"></textarea>
-                                        <p>Estoy de acuerdo con <input type="radio"><a href="#">Terminos y Condiciones</a></p>
-                                        <input class="botons" type="button" onclick="getData()" value="Crear">
-                                        <p><a href="http://localhost:5000/html/tableroDeEventos.html">volver</a></p>
-                                    </section>
-                            </div></center>
-            <!--            <div class="cardHeader">
-                            <h2>See challenges</h2>
-                            <a href="#"> View All</a>
+            <div class="cardbox">
+                <div class="card sombra">
+                    <div>
+                        <div class="numbers">6</div>
+                        <div class="cardName">Challenges completed</div>
+                    </div>
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trophy" width="50" height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#36bed9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                            <line x1="7" y1="4" x2="17" y2="4" />
+                            <path d="M17 4v8a5 5 0 0 1 -10 0v-8" />
+                            <circle cx="5" cy="9" r="2" />
+                            <circle cx="19" cy="9" r="2" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="card sombra">
+                    <div>
+                        <div class="numbers">9</div>
+                        <div class="cardName">challenges not completed</div>
+                    </div>
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="50" height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#36bed9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
                         </div>
-                        <table>
-                            <thead>
-                                <td>Challenge Name</td>
-                                <td>Lugar</td>
-                                <td>Place</td>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Jugar tejo</td>
-                                    <td>Bola 15</td>
-                                    <td><span class="status Activo">Activo</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </dir>
-                    <dir class="recentCustomers sombra">
-                        <div class="cardHeader">
-                            <h2>See challenges</h2>
-                            <a href="#" class="btn"> Mood</a>
-                        </div>
-                --> </dir>
+                </div>
+            </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="../js/dashboard.js"></script>
-    <script src="../js/crearEvento.js"></script>
+    <script src="../js/perfilUser.js"></script>
+    <script src="../js/activity.js"></script>
+
 </body>
 </html>

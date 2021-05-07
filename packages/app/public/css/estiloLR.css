@@ -137,6 +137,7 @@ body {
 	color: var(--negro);
 	font-size: 20px;
 	border-radius: 20px;
+	cursor: pointer;
 }
 .login2 input[type="submit"] {
 	border: none;

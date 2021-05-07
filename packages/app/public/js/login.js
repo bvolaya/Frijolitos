@@ -15,7 +15,6 @@ function login(){
       headers: myHeaders,
       body: user,
       redirect: "follow",
-      
     };
 
     fetch("http://localhost:3000/login", requestOptions)
@@ -33,7 +32,7 @@ function login(){
         console.log(result);
         sessionStorage.setItem("user", result);
         window.location.href =
-          "http://localhost:5000/html/tableroDeEventos.html";
+          "http://localhost:5000/html2/dashUsuario.html";
       })
       .catch((error) => {
         console.log("error", error);
