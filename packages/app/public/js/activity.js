@@ -52,7 +52,7 @@ function search(event) {
 
 function suscribe(event) {
 
-    let idActivities = event.path[1].getAttribute('id')
+    let idActivities = event.path[3].getAttribute('id')
     let idUser
     if (sessionStorage.getItem('user')){
         idUser= JSON.parse(sessionStorage.getItem('user')).data.id
@@ -98,43 +98,51 @@ function suscribe(event) {
 }
 
 function insertActivitiesToDom(data) {
-    deleteAllActivities('.container','.padre')
-    const div = document.querySelector(".container")
+    deleteAllActivities('.cards','.subcards')
+    const div = document.querySelector(".main")
     let divFather = document.createElement("div")
-        divFather.className = "row padre";
+    divFather.className = "cardbox cards";
     if (data.length > 0){
         for (let index = 0; index < data.length; index++) {
             let div1 = document.createElement("div");
-            div1.className = "col-lg-3 col-md-6 sombra"
+            div1.className = "card sombra subcards"
+            div1.id = data[index].id
             let div2 = document.createElement("div");
-            div2.className = "service-item"
-            div2.id = data[index].id
+            div2.className = "actividadParticipante"
+            let div3 = document.createElement("div");
             let h3 = document.createElement("h3");
             h3.textContent = data[index].title
-            h3.style = "color: black;";
+            let img = document.createElement("img");
+            img.src = data[index].image
+            img.width = "200"
+            let h4 = document.createElement("h4");
+            h4.textContent = data[index].direction
+            let h5 = document.createElement("h5");
+            h5.textContent = data[index].date
             let p = document.createElement("p");
             p.textContent = data[index].description
             let button = document.createElement("button");
-            button.className = "join"
-            button.style = "padding: 2px; background-color: rgb(70, 143, 238); color: white;"
-            button.textContent = "UNIRSE"
+            button.className = "btn"
+            button.textContent = "Unirme"
             button.onclick =  function() {suscribe(event)}
 
-            div2.appendChild(h3)
-            div2.appendChild(p)
-            div2.appendChild(button)
+            div3.appendChild(h3)
+            div3.appendChild(img)
+            div3.appendChild(h4)
+            div3.appendChild(h5)
+            div3.appendChild(p)
+            div3.appendChild(button)
+            div2.appendChild(div3)
             div1.appendChild(div2)
             divFather.appendChild(div1);
             div.appendChild(divFather);
         }
     }else{
-            let p = document.createElement("p");
-            p.textContent = "No encontramos actividades para mostrarte 🤦‍♂️"
-            divFather.appendChild(p);
-            div.appendChild(divFather);
+        let p = document.createElement("p");
+        p.textContent = "No encontramos actividades para mostrarte 🤦‍♂️"
+        divFather.appendChild(p);
+        div.appendChild(divFather);
     }
-
-
 }
 
 function deleteAllActivities(classNodeFather,classNodeSon) {
