@@ -19,8 +19,6 @@ var getData = function () {
     }
     //console.log(licencia)
     try {
-        let user = sessionStorage.getItem('user')
-        user = JSON.parse(user).data
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
