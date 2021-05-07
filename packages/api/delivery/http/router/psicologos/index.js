@@ -5,4 +5,5 @@ async function registroPsicologosRute(fastify) {
   fastify.post("/loginPsicologo", regPsicologos.loginUser);
 }
 
-module.exports = registroPsicologosRouter;
+module.exports = registroPsicologosRute;
+

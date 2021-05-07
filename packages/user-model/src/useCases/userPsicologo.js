@@ -1,4 +1,5 @@
-const  setupUserModel = require("../entities/userPsicologo");
+
+const  setupUserPsicologoModel = require("../entities/userPsicologo");
 
 async function createdUserPsicologos(UserData) {
   
@@ -21,7 +22,7 @@ async function createdUserPsicologos(UserData) {
 
 async function login(UserData) {
   try {
-    const userInstance = await setupUserModelPsiologos().findAll({
+    const userInstance = await setupUserPsicologoModel().findAll({
       where: {
         mail: UserData.mail,
       },

@@ -6,7 +6,7 @@ async function createdUserPsicologos(req, reply) {
   req.log.info(`Creating user ${data.firstName}`);
 
   try {
-    const User = await createdUserPsicologos(data);
+    const User = await createdUser(data);
     reply
       .code(201)
       .headers("Content-Type", "application/json; charset=utf-8")
