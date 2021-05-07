@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/fontello.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/estiloCrearEvento.css">
+  <script src="../js/js.js"></script>
+  <title>Modificar Evento|Health Space</title>
+</head>
+<header>
+  <div class= "contenedor">
+      <h1 class="">HEALTH SPACE</h1>
+      <label id="icon-menu" class="icon-menu"></label>
+      <nav class="menu">
+        <a href="perfilUsuario.html">Mi Perfil</a>
+        <a href="tableroDeEventos.html" >Actividades</a>
+        <a href="crearEventos.html">Crear Evento</a>
+        <a href="index.html">salir</a>
+      </nav>
+  </div>
+</header>
+<body>
+  <section class="Crear-evento sombra">
+    <h4>Modificar evento</h4>
+    <input class="controls" type="text" name="palabras" id="palabras" placeholder="Ingrese la categoria">
+    <input class="controls" type="text" name="nombreEvento" id="nombreEvento" placeholder="Ingrese el nombre del evento">
+    <b>Ingrese la fecha del evento:</b>
+    <input class="controls" type="date" name="fecha" id="fecha">
+    <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese la direccion del evento">
+    <b>Ingrese una descripción del Evento:</b>
+    <textarea name="textarea" id="descripcion" rows="3" cols="60"></textarea>
+    <input class="botons" type="button" onclick="getData()" value="Modificar">
+    <p><a href="http://localhost:5000/html/tableroDeEventos.html">volver</a></p>
+  </section>
+  <script src="../js/modificarEvento.js"></script>
+</body>
+</html>

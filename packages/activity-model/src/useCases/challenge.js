@@ -51,6 +51,20 @@ async function getAllActivity(id) {
 
 }
 
+async function getActivity(id) {
+  try {
+      let activities = await sequelize.query(`
+      select * from challenges where challenges.id = ${id};`
+          , { type: QueryTypes.SELECT }
+      )
+      return activities;
+  } catch (error) {
+      throw new Error(error.message);
+  }    
+
+}
+
+
 async function getActivityByUser(id) {
   try {
     if (!id) throw new Error("The Id is Require")   
@@ -90,4 +104,4 @@ async function modifyActivity(changeActivity){
     }
 }
 
-module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity};
+module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity, getActivity};
