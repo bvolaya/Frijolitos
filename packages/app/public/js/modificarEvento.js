@@ -43,6 +43,7 @@ function getData() {
         myHeaders.append("Content-Type", "application/json");
 
         let raw = JSON.stringify({
+          id:localStorage.getItem("idActividad"),
           title: nombreEvento,
           direction: direccion,
           description: descripcion,
@@ -58,7 +59,7 @@ function getData() {
         redirect: "follow",
         };
 
-        fetch("http://localhost:3000/activitiesMod", requestOptions)
+        fetch("http://localhost:5000/activitiesMod", requestOptions)
         .then((response) => response.text())
         .then((result) => {
             console.log(result)
@@ -81,7 +82,7 @@ function getData() {
 }
 function getActivity(Id){
     
-    fetch(`http://localhost:3000/obtenerActividad/${id}`, requestOptions)
+    fetch(`http://localhost:5000/obtenerActividad/${id}`, requestOptions)
         .then(response => response.text())
         .then(result => {
             let data = JSON.parse(result).data;
@@ -101,5 +102,5 @@ function getActivity(Id){
 window.onload=function(){
     id=localStorage.getItem("idActividad")
     getActivity(id)
-    localStorage.removeItem('idActividad');
+    
 }

@@ -9,6 +9,8 @@ async function challengeRouter(fastify) {
   fastify.post("/eliminarActividadUser", suscriptor.deleteSuscrip);
   fastify.post("/obtenerActividad/:activityId", challenge.getActivity);
 
+  
+
 }
 
 module.exports = challengeRouter;

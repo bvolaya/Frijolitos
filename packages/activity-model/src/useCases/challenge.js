@@ -64,7 +64,6 @@ async function getActivity(id) {
 
 }
 
-
 async function getActivityByUser(id) {
   try {
     if (!id) throw new Error("The Id is Require")   
@@ -103,5 +102,6 @@ async function modifyActivity(changeActivity){
         console.log(e.message)
     }
 }
+
 
 module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity, getActivity};
