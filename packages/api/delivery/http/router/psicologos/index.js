@@ -1,8 +1,8 @@
-const { regPsicologos } = require("../../../../adapter");
+const {regPsicologos } = require("../../../../adapter");
 
 async function registroPsicologosRute(fastify) {
-  fastify.post("/registerPsicologos", regPsicologos.createUserPsicologos);
-  fastify.post("/login", regPsicologos.loginUser);
+  fastify.post("/registroPsicologos", regPsicologos.createUserPsicologos);
+  fastify.post("/loginPsicologo", regPsicologos.loginUser);
 }
 
-module.exports = linkRouter;
+module.exports = registroPsicologosRouter;

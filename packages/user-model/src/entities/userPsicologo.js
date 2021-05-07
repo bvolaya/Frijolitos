@@ -1,9 +1,9 @@
 const Sequelize = require("sequelize");
 const sequelize = require("postgres-db-connect");
 
-module.exports = function setupUserModelPsiologos() {  
+module.exports = function setupUserPsiologoModel() {  
 
-  return sequelize.define("user", {
+  return sequelize.define("psicologo", {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,

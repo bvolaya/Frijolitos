@@ -1,6 +1,6 @@
-const { createdUser,login } = require("@frijol/user-model/src/useCases/registroPsicologos");
+const { createdUserPsicologos,login } = require("@frijol/user-model/src/useCases/registroPsicologos");
 
-async function createUserPsicologos(req, reply) {
+async function createdUserPsicologos(req, reply) {
 
   const data = req.body;
   req.log.info(`Creating user ${data.firstName}`);
@@ -56,6 +56,6 @@ async function loginUser(req, reply) {
 }
 
 module.exports = {
-  createUser,
+  createdUserPsicologos,
   loginUser,
 };

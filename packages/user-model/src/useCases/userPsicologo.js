@@ -1,10 +1,10 @@
-const  setupUserModel = require("../entities/registroPsicologos");
-const multer = require('multer');
+const  setupUserModel = require("../entities/userPsicologo");
+
 async function createdUserPsicologos(UserData) {
   
 
     try {
-        const userInstance = await setupUserModelPsiologos().create({
+        const userInstance = await setupUserPsiologoModel().create({
           firstName: UserData.firstName,
           lastName: UserData.lastName,
           mail: UserData.mail,
@@ -13,11 +13,6 @@ async function createdUserPsicologos(UserData) {
           addres: UserData.addres,
           document : UserData.document
         });
-        let activity = await sequelize.query(
-          `INSERT INTO challenges (firstName, lastName, mail, password, date, addres, document, "createdAt","updatedAt","userId")
-        VALUES ('${firstName}','${lastName}', '${mail}', '${password}', '${date}', '${addres}', '${document.name}', now(),now(), ${userId}) RETURNING id, firstName, lastName, mail, password, date, addres, document;`,
-          { type: QueryTypes.INSERT }
-        );
         return userInstance;
     } catch (error) {
         throw new Error(error.message);

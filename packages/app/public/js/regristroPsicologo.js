@@ -17,7 +17,7 @@ var getData = function () {
         let direccion = document.getElementById("direccionResidencia").value;
         let licencia = document.getElementById("licencia").files[0];
     }
-    console.log(licencia)
+    //console.log(licencia)
     try {
         let user = sessionStorage.getItem('user')
         user = JSON.parse(user).data
@@ -31,7 +31,7 @@ var getData = function () {
             password: contraseña,
             date: fecha,
             addres: direccion,
-            document: licencia
+            document: licencia.name
         });
 
         let requestOptions = {
