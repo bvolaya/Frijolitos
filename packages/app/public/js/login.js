@@ -15,7 +15,6 @@ function login(){
       headers: myHeaders,
       body: user,
       redirect: "follow",
-      
     };
 
     fetch("http://localhost:3000/login", requestOptions)
