@@ -82,3 +82,50 @@ function insertActivities(data) {
 
 
 }
+
+function suscribe(event) {
+
+    let idActivities = event.path[1].getAttribute('id')
+    let idUser
+    if (sessionStorage.getItem('user')){
+        idUser= JSON.parse(sessionStorage.getItem('user')).data.id
+    }else {throw new Error("User no Login")}
+
+
+    try {
+        let Header = new Headers();
+        Header.append("Content-Type", "application/json");
+
+        let raw = JSON.stringify({
+            "userId": idUser,
+            "activityId": idActivities
+        });
+
+        const requestOptions = {
+            method: 'POST',
+            headers: Header,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:3000/suscribe", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+
+                const confirm = Swal.mixin({
+                    didClose: (toast) => {
+                        location.reload()
+                    }
+                })
+                confirm.fire(
+                    'Genial',
+                    'Te has Unido a la actividad',
+                    'success',
+                )
+               // location.reload()
+            })
+            .catch(error => console.log('error', error));
+    }catch (error){
+        console.log(error.message)
+    }
+}

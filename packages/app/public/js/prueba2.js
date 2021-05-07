@@ -37,7 +37,7 @@ if (document.addEventListener){
 
 
 function insertActivities(data) {
-    const div = document.querySelector(".container")
+    const div = document.querySelector(".main")
     let divFather = document.createElement("div")
         divFather.className = "cardbox";
     if (data.length > 0){
@@ -86,4 +86,10 @@ function insertActivities(data) {
     }
 
 
+}
+
+function deleteAllActivities(classNodeFather, classNodeSon){
+    let fatherNode = document.querySelector(classNodeFather)
+    let sonNode = document.querySelector(classNodeSon)
+    if (fatherNode && sonNode) fatherNode.removeChild(sonNode)
 }
