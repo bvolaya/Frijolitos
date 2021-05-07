@@ -52,48 +52,41 @@ function obtenerActividad(){
 
 
 function Modificar(id) {
+    localStorage.removeItem("idActividad")
     localStorage.setItem('idActividad', id);
     window.location.href =    "http://localhost:5000/modificarEvento.html";
 
 }
 
+
+
 function Eliminar(id) {
 
     if (confirm("¿Está seguro de eliminar la actividad?")) {
-        let data = JSON.stringify({
-            activityId: id
-        });
-        let myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
+        let raw = JSON.stringify({
+            'isActive': false,
+            "id": id
+        })
+        
         let requestOptions = {
             method: "PUT",
             headers: myHeaders,
-            body, data,
+            body: raw,
             redirect: "follow",
         };
-
-        fetch("http://localhost:5000/eliminarActividadPsicologo/${id}", requestOptions)
-            .then((response) => {
-                if (response.ok) {
-                    return response.text();
-                } else if (response.status == 401) {
-                    throw new Error("Error del servidor");
-                } else {
-                    throw new Error("Error Interno");
-                }
-            })
+        
+        fetch("http://localhost:5000/activitiesMod", requestOptions)
+            .then((response) => response.text())
             .then((result) => {
-                console.log(result);
-                document.getElementById(id).remove()
-                alertify.success(result);
-
+                console.log(result)
+                alert("Actividad eliminada")
+                window.location.href =
+                    "http://localhost:5000/html/tableroDeEventosPsicologo.html";
             })
             .catch((error) => {
                 console.log("error", error);
-                alertify.error("Error del servidor");
+                alert("Error no se pudo modificar el evento");
             });
-
 
     }
 }
