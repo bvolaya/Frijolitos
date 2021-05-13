@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard|Participante</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" 
+    integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/normallize.css">
+    <link rel="stylesheet" type="text/css" href="../css/stylend.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="">
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#36bed9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                            <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5" />
+                        </svg></i></span>
+                        <span class="title"><h2>Health Space</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tableroDeEventosParticipante.html">
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                            <rect x="10" y="12" width="4" height="4" />
+                        </svg></span>
+                        <span class="title">Eventos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashPerfilParticipante.html">
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="7" r="4" />
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        </svg></span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="4" y1="12" x2="14" y2="12" />
+                            <line x1="4" y1="12" x2="8" y2="16" />
+                            <line x1="4" y1="12" x2="8" y2="8" />
+                            <line x1="20" y1="4" x2="20" y2="20" />
+                        </svg></span>
+                        <span class="title">Sing out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="4" y1="6" x2="20" y2="6" />
+                        <line x1="4" y1="12" x2="20" y2="12" />
+                        <line x1="4" y1="18" x2="20" y2="18" />
+                    </svg>
+                </div>
+                <div class="user">
+                    <div class="imagen">
+                        <img src="../img/perfil.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox cards">
+                <div class="card sombra">
+                    <div>
+                        <div class="numbers">6</div>
+                        <div class="cardName">Challenges completed</div>
+                    </div>
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trophy" width="50" height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#36bed9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                            <line x1="7" y1="4" x2="17" y2="4" />
+                            <path d="M17 4v8a5 5 0 0 1 -10 0v-8" />
+                            <circle cx="5" cy="9" r="2" />
+                            <circle cx="19" cy="9" r="2" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="card sombra">
+                    <div>
+                        <div class="numbers">9</div>
+                        <div class="cardName">challenges not completed</div>
+                    </div>
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="50" height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#36bed9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        </div>
+                </div>
+            </div>
+            <div class="details">
+
+                <div class="recentCustomers sombra">
+                    <div class="cardHeader">
+                        <h2>Progress</h2>
+                    </div>
+                    <div class="card">
+                        <div class= "contenedor1" id="perfil">
+                            <div class="col-12 my-13 pt-3 shadow">
+                                <hr>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/perfilUser.js"></script>
+
+</body>
+</html>
+

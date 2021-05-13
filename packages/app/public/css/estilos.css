@@ -37,7 +37,6 @@ header {
 	height: 50px;
 	background: var(--primario);
 	color: #fff;
-	
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -116,20 +115,22 @@ footer .sociales label {
 	display: none;
 }
 
-.banner .contenedor{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 100%;
-    color: #fff;
-    text-align: center;
+.banner .contenedor {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 100%;
+	color: #fff;
+	text-align: center;
 }
 
-.banner{
-    margin-top: -60px;
-    position: relative;
-    z-index: -1000;
-    margin-bottom: 30px;
+.banner {
+	margin-top: -60px;
+	position: relative;
+	z-index: -1000;
+	margin-bottom: 30px;
 }
-
+.banner h2 p {
+	text-align: justify;
+}

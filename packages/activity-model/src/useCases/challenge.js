@@ -25,8 +25,8 @@ async function createdActivity(ActivityData) {
         }
 
         let activity = await sequelize.query(
-          `INSERT INTO challenges (title,direction, description, date, categorie,"createdAt","updatedAt","userId")
-        VALUES ('${title}','${direction}', '${description}', '${date}', '${categorie}', now(),now(), ${userId}) RETURNING id,title,direction, description, date, categorie;`,
+          `INSERT INTO challenges (title,direction, description, "image" ,date, categorie,"createdAt","updatedAt","userId")
+        VALUES ('${title}','${direction}', '${description}', '${image}', '${date}', '${categorie}', now(),now(), ${userId}) RETURNING id,title,direction, description, date, categorie;`,
           { type: QueryTypes.INSERT }
         );
 
@@ -50,6 +50,20 @@ async function getAllActivity(id) {
     }    
 
 }
+
+async function getActivity(id) {
+  try {
+      let activities = await sequelize.query(`
+      select * from challenges where challenges.id = ${id};`
+          , { type: QueryTypes.SELECT }
+      )
+      return activities;
+  } catch (error) {
+      throw new Error(error.message);
+  }    
+
+}
+
 
 async function getActivityByUser(id) {
   try {
@@ -90,4 +104,4 @@ async function modifyActivity(changeActivity){
     }
 }
 
-module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity};
+module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity, getActivity};
