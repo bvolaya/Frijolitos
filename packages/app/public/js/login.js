@@ -31,8 +31,7 @@ function login(){
       .then((result) => {
         console.log(result);
         sessionStorage.setItem("user", result);
-        window.location.href =
-          "http://localhost:5000/html2/dashUsuario.html";
+        window.location.href ="http://localhost:5000/html/tableroDeEventosParticipante.html";
       })
       .catch((error) => {
         console.log("error", error);
