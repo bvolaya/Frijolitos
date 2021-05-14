@@ -1,7 +1,7 @@
 const sequelize = require("postgres-db-connect");
 
 const setupUserModel = require("./src/entities/user");
-const setupProfileModel = require("./src/entities/profile");
+const setupProfileModel = require("./src/entities/profile-participant");
 module.exports = async function () {
   const userModel = setupUserModel();
   const profileModel = setupProfileModel();

@@ -1,20 +1,21 @@
 const Sequelize = require("sequelize");
 const sequelize = require("postgres-db-connect");
 
-module.exports = function setupProfileModel(config) {
+module.exports = function setupProfileParticipantModel() {
   
-  return sequelize.define("profile", {
+  return sequelize.define("profileParticipant", {
     nickName: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    rol: {
+    img: {
       type: Sequelize.STRING,
       allowNull: false,
     },
+
   });
 };
