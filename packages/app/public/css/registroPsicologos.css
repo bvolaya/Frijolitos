@@ -1,0 +1,72 @@
+:root {
+    --blanco: #ffffff;
+    --negro: #000000;
+    --primario: #36bed9;
+    --secundario: #323333;
+    --opcional: #e6e6e6;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(
+            to top,
+            var(--opcional) 0%,
+            var(--blanco) 100%
+    );
+}
+.sombra {
+    -webkit-box-shadow: 3px 11px 14px 0px rgba(0, 0, 0, 0.69);
+    -moz-box-shadow: 3px 11px 14px 0px rgba(0, 0, 0, 0.69);
+    box-shadow: 3px 11px 14px 0px rgba(0, 0, 0, 0.69);
+}
+.RegistroPsicologos {
+    width: 500px;
+    background: var(--primario);
+    padding: 40px 30px;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 4px;
+    font-family: "bold";
+    color: var(--blanco);
+}
+.RegistroPsicologos h4 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.controls {
+    border: none;
+    border-bottom: 2px solid var(--blanco);
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: var(--blanco);
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.RegistroPsicologos p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+}
+.RegistroPsicologos a {
+    color: var(--blanco);
+    text-decoration: none;
+}
+.RegistroPsicologos a:hover {
+    color: var(--negro);
+    text-decoration: none;
+}
+
+.RegistroPsicologos .botons {
+    width: 100%;
+    background: var(--blanco);
+    border: none;
+    padding: 12px;
+    color: var(--negro);
+    margin: 16px 0;
+    font-size: 16px;
+    border-radius: 20px;
+}

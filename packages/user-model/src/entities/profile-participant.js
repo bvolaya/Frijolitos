@@ -7,15 +7,21 @@ module.exports = function setupProfileParticipantModel() {
     nickName: {
       type: Sequelize.STRING,
       allowNull: true,
+      unique: true
     },
     description: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     img: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
+    userId:{
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      unique: true
+    }
 
   });
 };

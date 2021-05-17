@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/fontello.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/registroPsicologos.css">
+    <script src="../js/js.js"></script>
+    <script src="../js/regristroPsicologo.js"></script>
+    <title>Registro Psicologos</title>
+</head>
+<header>
+    <div class= "contenedor">
+        <h1 class="">HEALTH SPACE</h1>
+        <label id="icon-menu" class="icon-menu"></label>
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="cursos.html" >Cursos</a>
+            <a href="blog.html">Blog</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </div>
+</header>
+<body>
+
+        <section class="RegistroPsicologos sombra">
+            <h4>Registro Psicologos</h4>
+            <b>Datos basicos:</b>
+            <input class="controls" type="text" name="id" id="id" placeholder="CC" required >
+            <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre" required >
+            <input class="controls" type="text" name="apellido" id="apellido" placeholder="Apellido" required >
+            <input class="controls" type="text" name="mail" id="mail" placeholder="Correo" required >
+            <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Contraseña" required >
+            <b>Datos de tu perfil</b>
+            <input class="controls" type="text" name="nickName" id="nickName" placeholder="NickName">
+            <input class="controls" type="text" name="idDocumentoProfesional" id="idDocumentoProfesional" placeholder="Numero de tarjeta profesional" required >
+            <input class="controls" type="text" name="yeargraduation" id="yeargraduation" placeholder="Año de graduación" required >
+            <input class="controls" type="text" name="direccionResidencia" id="direccionResidencia" placeholder="Dirección" required >
+            <input class="controls" type="text" name="phone" id="phone" placeholder="Telefono" required >
+            <b>Subir una foto de perfil</b>
+            <input class="controls" type="file" name="imgProfile" id="imgProfile">
+            <b>Subir una foto o captura de la tarjeta profesional</b>
+            <input class="controls" type="file" name="licencia" id="licencia" required >
+            <b>Subir una foto o captura del documento de identidad</b>
+            <input class="controls" type="file" name="documentoCC" id="documentoCC" required >
+            <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+            <button class="botons" type="button" onclick="submit()"> Registrar </button>
+            <p><a href="/">volver</a></p>
+        </section>
+
+    <!-- <script src="../js/regristroPsicologo.js"></script>  -->
+</body>
+</html>

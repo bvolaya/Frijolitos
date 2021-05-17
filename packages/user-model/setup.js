@@ -1,17 +1,23 @@
 
 const sequelize = require("postgres-db-connect");
-const {profilePsycology,profileParticipant,user} = require('./src/entities')
-const setupUserModel = require("./src/entities/user");
-const setupProfileModel = require("./src/entities/profile-participant");
-const setupProfileModel = require("./src/entities/profile-participant");
+const {
+  setupProfileParticipantModel,
+  setupProfilePsycologyModel,
+  setupUserModel} = require('./src/entities')
+
 async function setup() {
   const userModel = setupUserModel();
-  const profileModel = setupProfileModel();
+  const profilePsycology = setupProfilePsycologyModel();
+  const profileParticipant = setupProfileParticipantModel();
 
-  userModel.hasOne(profileModel);
-  profileModel.belongsTo(userModel);
+  userModel.hasOne(profilePsycology);
+  profilePsycology.belongsTo(userModel);
+
+  userModel.hasOne(profileParticipant);
+  profileParticipant.belongsTo(userModel);
+
   await sequelize.authenticate();
   await sequelize.sync({ force: true });
-};
+}
 
 setup()

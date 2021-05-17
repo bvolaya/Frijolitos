@@ -7,14 +7,16 @@ module.exports = function setupProfilePsycologyModel() {
         cc: {
             type: Sequelize.INTEGER,
             allowNull: true,
+            unique: true
         },
         urlcc: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
             allowNull: true,
         },
         profesionalcard: {
             type: Sequelize.INTEGER,
             allowNull: false,
+            unique: true
         },
         urlcard: {
             type: Sequelize.STRING,
@@ -35,6 +37,11 @@ module.exports = function setupProfilePsycologyModel() {
         yeargraduation: {
             type: Sequelize.INTEGER,
             allowNull: false,
+        },
+        userId:{
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            unique: true
         }
     });
 };
