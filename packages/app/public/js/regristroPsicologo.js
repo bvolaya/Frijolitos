@@ -39,19 +39,51 @@ function submit() {
 
 
         fetch("http://localhost:3000/register", requestOptions)
-            .then((response) => response.text())
+            .then((response) => {
+                if (response.statusCode !== 201){
+                    throw new Error("Error en el registro")
+                }else{
+                    return response.text()
+                }
+            })
             .then((result) => {
                 console.log(result)
-                alert("Registro exitoso")
-                window.location.href = "http://localhost:5000/login";
+                const confirm = Swal.mixin({
+                    didClose: (toast) => {
+                        window.location.href = "http://localhost:5000/login";
+                    }
+                })
+                confirm.fire(
+                    'Genial',
+                    'Registro Exitoso, Ahora ingresa con tus credenciales',
+                    'success',
+                )
             })
             .catch((error) => {
                 console.log("error", error);
-                alert("Error no se pudo registrar");
+                const confirm = Swal.mixin({
+                    didClose: (toast) => {
+
+                    }
+                })
+                confirm.fire(
+                    'Ups Algo salio mal',
+                    'Revisa los datos ingresados',
+                    'error',
+                )
             });
 
     } catch (error) {
-        alert("Revisa los datos");
+        const confirm = Swal.mixin({
+            didClose: (toast) => {
+
+            }
+        })
+        confirm.fire(
+            'Ups Algo salio mal',
+            'Revisa los datos ingresados',
+            'error',
+        )
     }
 
-};
+}

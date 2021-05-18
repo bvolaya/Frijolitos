@@ -8,10 +8,11 @@
     <script src="#"></script>
     <link rel="preload" href="../css/estiloLR.css" as="style">
     <link rel="stylesheet" href="../css/estiloLR.css">
-    <script src="../js/register.js"></script>
     <link rel="stylesheet" href="../css/fontello.css">
     <link rel="stylesheet" href="../css/estilos.css">
     <script src="../js/js.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <header>
     <div class= "contenedor">
@@ -55,15 +56,20 @@
                     <label>email*</label>
                     <input type="email" id="email" name="email" placeholder="@email" required>
                 </div>
-                <!--<div>
-                    <label>phone number</label>
-                    <input type="number" min="0" id="telefono" name="telefono" placeholder="phone number" required>
-                </div>-->
+                <div>
+                    <label>nickName*</label>
+                    <input type="text" id="nickName" name="nickName" placeholder="nickname" required>
+                </div>
+
+                <div>
+                    <b>Subir una foto de perfil</b>
+                    <input class="controls" type="file" name="imgProfile" id="imgProfile">
+                </div>
+
                 <div>
                     <input onClick="register()" type="submit" id="button-register" value="register NOW">
                 </div>
-                <a href="#">I don't want to register ;.;</a><br>
-                <a href="#">I already have an account</a>
+                <a href="/login">I already have an account</a>
             </div>
         </section>
     </main>
