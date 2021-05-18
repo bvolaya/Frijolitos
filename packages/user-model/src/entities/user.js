@@ -26,6 +26,11 @@ module.exports = function setupUserModel() {
       type: Sequelize.BOOLEAN,
       defaultValue: true,
     },
+    rol: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      defaultValue: "participant"
+    },
     password: {
       type: Sequelize.STRING,
       allowNull: false,

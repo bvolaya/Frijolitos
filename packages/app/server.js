@@ -32,7 +32,7 @@ app.get('/register', (request,response)=>{
 })
 
 app.get('/register/psychology', (request,response)=>{
-    response.sendFile(__dirname +'/public/html/registroCrador.html')
+    response.sendFile(__dirname +'/public/html/registroPsicologo.html')
 })
 
 // Rutas de eventos

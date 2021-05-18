@@ -1,19 +1,65 @@
 
-const  setupUserModel = require("../entities/user");
+const  {
+  setupUserModel,
+  setupProfilePsycologyModel,
+  setupProfileParticipantModel} = require("../entities");
+
+const sequelize = require("postgres-db-connect");
 
 async function createdUser(UserData) {
-  
-
+    const t = await sequelize.transaction();
     try {
-        const userInstance = await setupUserModel().create({
-          firstName: UserData.firstName,
-          lastName: UserData.lastName,
-          mail: UserData.mail,
-          password: UserData.password,
-        });
+        const userModel = setupUserModel();
+        const profilePsycology = setupProfilePsycologyModel();
+        const profileParticipant = setupProfileParticipantModel();
+        let instance = {}
+        const user = await userModel.create({
+            firstName: UserData.firstName,
+            lastName: UserData.lastName,
+            mail: UserData.mail,
+            password: UserData.password,
+            rol: UserData.rol
+        }, { transaction: t })
 
-        return userInstance;
-    } catch (error) {
+        if(UserData.rol === 'psychology'){
+
+            const profile = await profilePsycology.create({
+                userId: user.id,
+                cc:parseInt(UserData.cc),
+                urlcc:UserData.files.imgCC[0].destination+"/"+UserData.files.imgCC[0].filename,
+                profesionalcard:parseInt(UserData.profesionalcard),
+                urlcard:UserData.files.imgCard[0].destination+"/"+UserData.files.imgCard[0].filename,
+                img:UserData.files.imgProfile[0].destination +"/"+UserData.files.imgProfile[0].filename,
+                direction:UserData.direction,
+                phone:UserData.phone,
+                yeargraduation:parseInt(UserData.yeargraduation)
+            }, { transaction: t })
+
+            await t.commit();
+            Object.assign(instance,user.dataValues)
+            instance['profile'] = profile.dataValues
+
+            return instance;
+        }else if(UserData.rol === 'participant'){
+            const profile = await profileParticipant.create({
+                userId: user.id,
+                nickName:UserData.nickName,
+                description:UserData.description,
+                img:UserData.files.imgProfile[0].destination +"/"+UserData.files.imgProfile[0].filename
+            }, { transaction: t })
+
+            await t.commit();
+            Object.assign(instance,user.dataValues)
+            instance['profile'] = profile.dataValues
+
+            return instance;
+        }else if (UserData.rol === 'business'){
+
+        }else {
+            throw new Error("Invalid Rol")
+        }
+    }catch (error) {
+        await t.rollback();
         throw new Error(error.message);
     }
 }
