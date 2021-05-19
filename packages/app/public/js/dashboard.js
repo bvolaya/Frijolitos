@@ -1,3 +1,4 @@
+
 if (document.addEventListener){
     window.addEventListener('load',getMetric(),false);
 
@@ -19,3 +20,4 @@ function getMetric(){
     let
 
 }*/
+

@@ -25,7 +25,7 @@ function register(){
 
     fetch("http://localhost:3000/register", requestOptions)
       .then((response) => {
-          if (response.statusCode !== 201){
+          if (response.status !== 201){
               throw new Error("Error en el registro")
           }else{
               return response.text()
