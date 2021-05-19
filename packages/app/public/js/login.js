@@ -30,7 +30,8 @@ function login(){
           }       })
       .then((result) => {
         console.log(result);
-        sessionStorage.setItem("user", result);
+        sessionStorage.setItem("user", result);ç
+        JSON.parse(sessionStorage.getItem("user"))
         window.location.href ="http://localhost:5000/html/tableroDeEventosParticipante.html";
       })
       .catch((error) => {

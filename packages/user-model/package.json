@@ -18,7 +18,7 @@
    },
    "scripts": {
       "test": "echo \"Error: run tests from root\" && exit 1",
-      "start:setup": "node setup.js"
+      "setup": "node setup.js"
    },
    "bugs": {
       "url": "https://github.com/bvolaya/Frijolitos/issues"

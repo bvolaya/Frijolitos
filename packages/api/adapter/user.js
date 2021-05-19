@@ -3,6 +3,8 @@ const { createdUser,login } = require("@frijol/user-model/src/useCases/user");
 async function createUser(req, reply) {
 
   const data = req.body;
+  data['files'] = req.files
+
   req.log.info(`Creating user ${data.firstName}`);
 
   try {

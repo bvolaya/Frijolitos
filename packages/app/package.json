@@ -28,6 +28,7 @@
     "url": "https://github.com/bvolaya/Frijolitos/issues"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sweetalert2": "^11.0.7"
   }
 }
