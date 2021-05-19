@@ -142,3 +142,4 @@ temp/
 
 .DS_Store
 .idea/
+.gradle
