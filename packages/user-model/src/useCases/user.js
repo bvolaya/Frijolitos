@@ -77,7 +77,7 @@ async function login(UserData) {
         "mail",
         "isVerify",
         "password",
-        "role",
+        "rol",
         "profile"
       ],
     });
@@ -87,13 +87,13 @@ async function login(UserData) {
       throw new Error("The User don't exist");
     } else if (userInstance[0].password == UserData.password) {
       var profile = {}
-      if (UserData.role == "psychology") {
+      if (UserData.rol == "psychology") {
         profile = {
           nickName: userInstance[0].nickName,
           description: userInstance[0].description,
           img: userInstance[0].img
         }
-      } else if (UserData.role == "participant") {
+      } else if (UserData.rol == "participant") {
         profile = {
           cc: userInstance[0].cc,
           urlcc: userInstance[0].urlcc,
@@ -111,7 +111,7 @@ async function login(UserData) {
         "lastName": userInstance[0].lastName,
         "mail": userInstance[0].mail,
         "isVerify": userInstance[0].isVerify,
-        "role": userInstance[0].role,
+        "rol": userInstance[0].rol,
         "profile": profile
       }
     } else {
