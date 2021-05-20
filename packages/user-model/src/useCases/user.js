@@ -86,10 +86,10 @@ async function login(UserData) {
       throw new Error("The User don't exist");
     } else if (userInstance[0].password == UserData.password) {
       var profile = {}
-      if (UserData.rol == "participant") {
+      if (userInstance[0].rol == "participant") {
         const participantInstance = await setupProfileParticipantModel().findAll({
           where: {
-            userId: UserData.id,
+            userId: userInstance[0].id,
           },
           attributes: [
            "nickName",
@@ -102,10 +102,10 @@ async function login(UserData) {
           description: participantInstance[0].description,
           img: participantInstance[0].img
         }
-      } else if (UserData.rol == "psychology") {
+      } else if (userInstance[0].rol == "psychology") {
         const psychologyInstance = await setupProfilePsycologyModel().findAll({
           where: {
-            userId: UserData.id,
+            userId: userInstance[0].id,
           },
           attributes: [
            "cc",
