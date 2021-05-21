@@ -1,4 +1,28 @@
+if (document.addEventListener){
+    window.addEventListener('load',obtenerActividad(),false);
 
+} else {
+    window.attachEvent('onload',obtenerActividad());
+}
+
+function obtenerActividad () {
+    console.log("obteniendo actividades");
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    ///////////////REVISAR LOCALHOST////////////////////
+    let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
+    fetch(`http://localhost:3000/activities/${idUser}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            let data = JSON.parse(result).data;
+            insertActivities(data)
+        })
+        .catch(error => console.log('error', error));
+}
+
+//Modificar Actividades
 var getData = function () {
     var palabras = document.getElementById("palabras").value;
     var nombreEvento = document.getElementById("nombreEvento").value;
@@ -104,8 +128,9 @@ window.onload=function(){
     getActivity(id)
     
 }
-
-function insertActivitiesToDom(data) {
+///////////////////////////////////////////////
+//Insertar tablero de actividades
+function insertActivities(data) {
     deleteAllActivities('.cards','.subcards')
     const div = document.querySelector(".main")
     let divFather = document.createElement("div")

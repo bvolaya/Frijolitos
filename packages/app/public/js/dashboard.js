@@ -7,6 +7,33 @@ function toggleMenu(){
     main.classList.toggle('active')
 }
 
+
+if (document.addEventListener){
+    window.addEventListener('load',obtenerActividad(),false);
+    window.addEventListener('load',aproveActivity(),false);
+
+} else {
+    window.attachEvent('onload',obtenerActividad());
+    window.attachEvent('onload', aproveActivity());
+}
+
+function obtenerActividad () {
+    console.log("obteniendo actividades");
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    ///////////////////REVISAR LOCALHOST/////////////
+    let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
+    fetch(`http://localhost:3000/activities/${idUser}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            let data = JSON.parse(result).data;
+            insertActivitiesDH(data)
+        })
+        .catch(error => console.log('error', error));
+}
+
 function activityPending(){
     
 }
@@ -33,7 +60,7 @@ function aproveActivity(){
         .catch(error => console.log('error', error));
 }
 
-function insertActivitiesToDom(data) {
+function insertActivitiesDH(data) {
     deleteAllActivities('.cards','.subcards')
     const div = document.querySelector(".main")
     let divFather = document.createElement("div")
