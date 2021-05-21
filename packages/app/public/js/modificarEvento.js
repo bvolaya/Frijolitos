@@ -154,22 +154,13 @@ function insertActivities(data) {
             h5.textContent = data[index].date
             let p = document.createElement("p");
             p.textContent = data[index].description
-            let button1 = document.createElement("button");
-            button1.className = "btn status"
-            button1.textContent = "Modificar"
-            button1.onclick =  function() {suscribe(event)}
-            let button2 = document.createElement("button");
-            button2.className = "btn-r status"
-            button2.textContent = "Eliminar"
-            button2.onclick =  function() {suscribe(event)}
+            
 
             div3.appendChild(h3)
             div3.appendChild(img)
             div3.appendChild(h4)
             div3.appendChild(h5)
             div3.appendChild(p)
-            div3.appendChild(button1)
-            div3.appendChild(button2)
             div2.appendChild(div3)
             div1.appendChild(div2)
             divFather.appendChild(div1);
