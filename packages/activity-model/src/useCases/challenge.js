@@ -117,4 +117,4 @@ async function modifyActivity(changeActivity){
     }
 }
 
-module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity, getActivity};
+module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity, getActivity, getActivitiesPsycology};
