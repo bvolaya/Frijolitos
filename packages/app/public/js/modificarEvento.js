@@ -1,4 +1,28 @@
+if (document.addEventListener){
+    window.addEventListener('load',obtenerActividad(),false);
 
+} else {
+    window.attachEvent('onload',obtenerActividad());
+}
+
+function obtenerActividad () {
+    console.log("obteniendo actividades");
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    ///////////////REVISAR LOCALHOST////////////////////
+    let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
+    fetch(`http://localhost:3000/activities/${idUser}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            let data = JSON.parse(result).data;
+            insertActivities(data)
+        })
+        .catch(error => console.log('error', error));
+}
+
+//Modificar Actividades
 var getData = function () {
     var palabras = document.getElementById("palabras").value;
     var nombreEvento = document.getElementById("nombreEvento").value;
@@ -103,4 +127,50 @@ window.onload=function(){
     id=localStorage.getItem("idActividad")
     getActivity(id)
     
+}
+///////////////////////////////////////////////
+//Insertar tablero de actividades
+function insertActivities(data) {
+    deleteAllActivities('.cards','.subcards')
+    const div = document.querySelector(".main")
+    let divFather = document.createElement("div")
+    divFather.className = "cardbox cards";
+    if (data.length > 0){
+        for (let index = 0; index < data.length; index++) {
+            let div1 = document.createElement("div");
+            div1.className = "card sombra subcards"
+            div1.id = data[index].id
+            let div2 = document.createElement("div");
+            div2.className = "actividadParticipante"
+            let div3 = document.createElement("div");
+            let h3 = document.createElement("h3");
+            h3.textContent = data[index].title
+            let img = document.createElement("img");
+            img.src = data[index].image
+            img.width = "200"
+            let h4 = document.createElement("h4");
+            h4.textContent = data[index].direction
+            let h5 = document.createElement("h5");
+            h5.textContent = data[index].date
+            let p = document.createElement("p");
+            p.textContent = data[index].description
+            
+
+            div3.appendChild(h3)
+            div3.appendChild(img)
+            div3.appendChild(h4)
+            div3.appendChild(h5)
+            div3.appendChild(p)
+            div2.appendChild(div3)
+            div1.appendChild(div2)
+            divFather.appendChild(div1);
+            div.appendChild(divFather);
+        }
+    }else{
+        let p = document.createElement("p");
+        p.textContent = "No encontramos actividades para mostrarte 🤦‍♂️"
+        p.className = "subcards"
+        divFather.appendChild(p);
+        div.appendChild(divFather);
+    }
 }

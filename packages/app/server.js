@@ -57,7 +57,7 @@ app.get('/dashboard', (request,response)=>{
 })
 
 app.get('/dashboard/psychology', (request,response)=>{
-    response.sendFile(__dirname +'/public/html/dashPerfilPsicologo.html')
+    response.sendFile(__dirname +'/public/html/dashPsicologo.html')
 })
 
 app.listen(port, () => console.log(`listening on port ${port}!`));
