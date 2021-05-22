@@ -28,8 +28,6 @@ module.exports = function setupChallengeModel() {
     image: {
       type: Sequelize.STRING,
       allowNull: true,
-      defaultValue:
-        "https://gravatar.com/avatar/3e4c1a7e8f6752820fd325aa4b119099?s=400&d=robohash&r=x",
     },
     categorie: {
       type: Sequelize.STRING,
