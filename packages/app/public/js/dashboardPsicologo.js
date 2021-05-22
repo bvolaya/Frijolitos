@@ -17,8 +17,18 @@ function obtenerActividad () {
     };
     ///////////////////REVISAR LOCALHOST/////////////
     let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
-    fetch(`http://localhost:3000/activities/${idUser}`, requestOptions)
-        .then(response => response.text())
+    fetch(`http://localhost:3000/activitiesPsycology/${idUser}`, requestOptions)
+        .then(response => { 
+            if (response.ok) {
+                return response.text();
+            } else if (response.status == 401) {
+                throw new Error("Acceso no autorizado");
+            } else if (response.status == 404) {
+                throw new Error("Página no encontrada");
+            } else {
+                throw new Error("Error Interno");
+            }
+        })
         .then(result => {
             let data = JSON.parse(result).data;
             insertActivitiesDH(data)
@@ -26,31 +36,31 @@ function obtenerActividad () {
         .catch(error => console.log('error', error));
 }
 
-function activityPending(){
+// function activityPending(){
     
-}
+// }
 
-function aproveActivity(){
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+// function aproveActivity(){
+//     let myHeaders = new Headers();
+//     myHeaders.append("Content-Type", "application/json");
 
-    let raw = JSON.stringify({
-        "id": 1,
-        "isActive": false
-});
+//     let raw = JSON.stringify({
+//         "id": 1,
+//         "isActive": false
+// });
 
-    let requestOptions = {
-        method: 'PUT',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-};
+//     let requestOptions = {
+//         method: 'PUT',
+//         headers: myHeaders,
+//         body: raw,
+//         redirect: 'follow'
+// };
 
-    fetch("http://localhost:3000/activities", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-}
+//     fetch("http://localhost:3000/activities", requestOptions)
+//         .then(response => response.text())
+//         .then(result => console.log(result))
+//         .catch(error => console.log('error', error));
+// }
 
 function insertActivitiesDH(data) {
     deleteAllActivities('.cards','.subcards')

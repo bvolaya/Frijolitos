@@ -51,6 +51,19 @@ async function getAllActivity(id) {
 
 }
 
+async function getActivitiesPsycology(id) {
+  try {
+      let activities = await sequelize.query(`
+      SELECT * FROM challenges WHERE "userId"=${idUser};`
+          , { type: QueryTypes.SELECT }
+      )
+      return activities;
+  } catch (error) {
+      throw new Error(error.message);
+  }    
+
+}
+
 async function getActivity(id) {
   try {
       let activities = await sequelize.query(`

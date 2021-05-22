@@ -7,5 +7,6 @@ module.exports = {
   getAllActivity: challegeUseCases.getAllActivity,
   getActivityByUser : challegeUseCases.getActivityByUser,
   changeActivity : challegeUseCases.modifyActivity,
-  getActivity : challegeUseCases.getActivity
+  getActivity : challegeUseCases.getActivity,
+  getActivitiesPsycology : challengeUseCases.getActivitiesPsycology
 }
