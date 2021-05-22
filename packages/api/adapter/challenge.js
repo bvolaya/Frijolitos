@@ -2,7 +2,8 @@ const {
   createActivity,
   getAllActivity,
   getActivityByUser,
-  changeActivity
+  changeActivity,
+  getActivitiesPsycology
 } = require("@frijol/activity-model");
 
 
@@ -70,6 +71,26 @@ async function getAllActivities(req, reply) {
   }
 }
 
+async function getAllActivitiesPsycology(req, reply) {
+
+  const { userId } = req.params;
+  req.log.info(`Search activities psycology ......`);
+
+  try {
+    const activities = await getActivitiesPsycology(userId);
+    reply
+      .code(200)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: activities });
+  } catch (error) {
+    console.log(error);
+    reply
+      .code(500)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: "Error Interno " + error.message });
+  }
+}
+
 async function getActivitiesByUser(req, reply) {
     const { userId } = req.params;
 
@@ -111,4 +132,4 @@ async function getActivity(req, reply) {
 }
 
 
-module.exports = { createdActivities, getAllActivities, getActivitiesByUser,changeActivities, getActivity };
+module.exports = { createdActivities, getAllActivities, getActivitiesByUser,changeActivities, getActivity, getAllActivitiesPsycology}

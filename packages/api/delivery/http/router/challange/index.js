@@ -8,6 +8,7 @@ async function challengeRouter(fastify) {
   fastify.post("/suscribe", suscriptor.createSuscriptors);
   fastify.post("/eliminarActividadUser", suscriptor.deleteSuscrip);
   fastify.post("/obtenerActividad/:activityId", challenge.getActivity);
+  fastify.get("/activitiesPsycology/:userId", challenge.getAllActivitiesPsycology);
 
 }
 
