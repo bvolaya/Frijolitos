@@ -80,11 +80,14 @@ function insertActivitiesDH(data) {
             let button1 = document.createElement("button");
             button1.className = "btn status"
             button1.textContent = "Modificar"
-            button1.onclick =  function() {suscribe(event)}
+            button1.onclick =  function() {window.location.href=`/event/modify/${data[index].id}`}
             let button2 = document.createElement("button");
+            button2.type = "button"
             button2.className = "btn-r status"
+            button2.dataset.id = data[index].id
+            button2.dataset.title = data[index].title
             button2.textContent = "Eliminar"
-            button2.onclick =  function() {suscribe(event)}
+            button2.onclick =  function() {Eliminar(this)}
 
             div3.appendChild(h3)
             div3.appendChild(img)
