@@ -31,8 +31,7 @@ function login(){
       .then((result) => {
         console.log(result);
         sessionStorage.setItem("user", result);
-        console.log(JSON.parse(sessionStorage.getItem("user")));
-        window.location.href ="http://localhost:5000/html/tableroDeEventosParticipante.html";
+        window.location.href ="http://localhost:5000/events";
       })
       .catch((error) => {
         console.log("error", error);
