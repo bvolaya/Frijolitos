@@ -77,13 +77,17 @@ function insertActivitiesDH(data) {
             let div3 = document.createElement("div");
             let h3 = document.createElement("h3");
             h3.textContent = data[index].title
+            let div4 = document.createElement("div");
+            div4.className = "image"
+            div4.width = "100%"
+            div4.text-align = center
             let img = document.createElement("img");
             img.src = data[index].image
             img.width = "200"
             let h4 = document.createElement("h4");
             h4.textContent = data[index].direction
             let h5 = document.createElement("h5");
-            h5.textContent = data[index].date
+            h5.textContent = FormatDate(data[index].date)
             let p = document.createElement("p");
             p.textContent = data[index].description
             p.textContent = data[index].description
@@ -100,12 +104,13 @@ function insertActivitiesDH(data) {
             button2.onclick =  function() {Eliminar(this)}
 
             div3.appendChild(h3)
-            div3.appendChild(img)
+            div4.appendChild(img)
             div3.appendChild(h4)
             div3.appendChild(h5)
             div3.appendChild(p)
             div3.appendChild(button1)
             div3.appendChild(button2)
+            div3.appendChild(div4)
             div2.appendChild(div3)
             div1.appendChild(div2)
             divFather.appendChild(div1);
