@@ -121,17 +121,22 @@ function insertActivitiesToDom(data) {
             h5.textContent = data[index].date
             let p = document.createElement("p");
             p.textContent = data[index].description
-            let button = document.createElement("button");
-            button.className = "btn"
-            button.textContent = "Unirme"
-            button.onclick =  function() {suscribe(event)}
+            if ("Participant"){
+                let button = document.createElement("button");
+                button.className = "btn"
+                button.textContent = "Unirme"
+                button.onclick =  function() {suscribe(event)}
 
+            }
+            
             div3.appendChild(h3)
             div3.appendChild(img)
             div3.appendChild(h4)
             div3.appendChild(h5)
             div3.appendChild(p)
-            div3.appendChild(button)
+            if ("Participant"){
+                div3.appendChild(button)
+            }
             div2.appendChild(div3)
             div1.appendChild(div2)
             divFather.appendChild(div1);
