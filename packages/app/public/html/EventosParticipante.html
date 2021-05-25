@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TableroEventos|Participante</title>
+    <title>Eventos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" 
     integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/normallize.css">
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/profile">
+                    <a href="/profile" class="profileUser">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <circle cx="12" cy="7" r="4" />
@@ -86,7 +86,7 @@
                             <line x1="4" y1="12" x2="8" y2="8" />
                             <line x1="20" y1="4" x2="20" y2="20" />
                         </svg></span>
-                        <span class="title">Sing out</span>
+                        <span class="title" onclick="logout()" >Sing out</span>
                     </a>
                 </li>
             </ul>
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="cardbox">
-                <div class="card sombra">
+                <!--<div class="card sombra">
                     <div>
                         <div class="numbers">6</div>
                         <div class="cardName">Challenges completed</div>
@@ -145,14 +145,15 @@
                             <line x1="12" y1="16" x2="12.01" y2="16" />
                         </svg>
                         </div>
-                </div>
+                </div>-->
             </div>
-            <div class="cardbox cards">
+            <div class="cardbox cards cardsfather">
             </div>
 
         </div>
     </div>
     <script src="../js/dashboard.js"></script>
+    <script src="../js/menu.js"></script>
     <script src="../js/activity.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
