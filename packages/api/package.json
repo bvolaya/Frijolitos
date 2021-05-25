@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "dev": "node index.js"
+    "dev": "node index.js && export NODE_ENV=dev",
+    "prod": "node index.js && export NODE_ENV=prod"
   },
   "bugs": {
     "url": "https://github.com/bvolaya/Frijolitos/issues"
@@ -32,6 +33,7 @@
     "@frijol/activity-model": "^0.0.0",
     "@frijol/user-model": "^0.0.0",
     "@frijoles/search": "^1.0.0",
+    "cloudinary": "^1.25.1",
     "fastify": "^3.14.0",
     "fastify-cors": "^5.2.0",
     "fastify-multer": "^2.0.2",

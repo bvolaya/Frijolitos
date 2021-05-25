@@ -1,9 +1,13 @@
 const { createdUser,login } = require("@frijol/user-model/src/useCases/user");
+const {uploadPicture} = require('../utils')
 
 async function createUser(req, reply) {
 
   const data = req.body;
-  data['files'] = req.files
+  const url = await uploadPicture(req.files)
+  data['files'] = url
+
+
 
   req.log.info(`Creating user ${data.firstName}`);
 

@@ -26,10 +26,10 @@ async function createdUser(UserData) {
       const profile = await profilePsycology.create({
         userId: user.id,
         cc: parseInt(UserData.cc),
-        urlcc: UserData.files.imgCC[0].destination + "/" + UserData.files.imgCC[0].filename,
+        urlcc: UserData.files.imgCC,
         profesionalcard: parseInt(UserData.profesionalcard),
-        urlcard: UserData.files.imgCard[0].destination + "/" + UserData.files.imgCard[0].filename,
-        img: UserData.files.imgProfile[0].destination + "/" + UserData.files.imgProfile[0].filename,
+        urlcard: UserData.files.imgCard,
+        img: UserData.files.imgProfile,
         direction: UserData.direction,
         phone: UserData.phone,
         yeargraduation: parseInt(UserData.yeargraduation)
@@ -45,7 +45,7 @@ async function createdUser(UserData) {
         userId: user.id,
         nickName: UserData.nickName,
         description: UserData.description,
-        img: UserData.files.imgProfile[0].destination + "/" + UserData.files.imgProfile[0].filename
+        img: UserData.files.imgProfile
       }, { transaction: t })
 
       await t.commit();
