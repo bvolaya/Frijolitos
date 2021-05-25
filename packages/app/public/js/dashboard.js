@@ -44,6 +44,6 @@ function insertDataToDashboard(data) {
         challengePending.innerHTML=data.metric.process
     }else if (rol === 'psychology'){
         let challengeCreated = document.querySelector('div.challengeCreated')
-        challengeCreated.innerHTML=data.metric.Created
+        challengeCreated.innerHTML=data.metric.created
     }
 }
