@@ -41,6 +41,7 @@ function search(event) {
             .then(result => {
                 let data = JSON.parse(result).data
                 // Load new Activities
+
                     insertActivitiesToDom(data._result)
             }
             )
@@ -51,8 +52,8 @@ function search(event) {
 
 
 function suscribe(event) {
-
-    let idActivities = event.path[3].getAttribute('id')
+    let path = event.path || (event.composedPath && event.composedPath());
+    let idActivities = path[3].getAttribute('id')
     let idUser
     if (sessionStorage.getItem('user')){
         idUser= JSON.parse(sessionStorage.getItem('user')).data.id
@@ -98,8 +99,9 @@ function suscribe(event) {
 }
 
 function insertActivitiesToDom(data) {
-    deleteAllActivities('.cards','.subcards')
-    const div = document.querySelector(".main")
+    let user= JSON.parse(sessionStorage.getItem('user')).data.rol
+    deleteAllActivities('.cardsfather','.subcards')
+    const div = document.querySelector(".cardsfather")
     let divFather = document.createElement("div")
     divFather.className = "cardbox cards";
     if (data.length > 0){
@@ -121,12 +123,13 @@ function insertActivitiesToDom(data) {
             h5.textContent = data[index].date
             let p = document.createElement("p");
             p.textContent = data[index].description
-            if ("Participant"){
+
+            if (user === "participant"){
                 let button = document.createElement("button");
                 button.className = "btn"
                 button.textContent = "Unirme"
                 button.onclick =  function() {suscribe(event)}
-
+                div3.appendChild(button)
             }
             
             div3.appendChild(h3)
@@ -134,9 +137,6 @@ function insertActivitiesToDom(data) {
             div3.appendChild(h4)
             div3.appendChild(h5)
             div3.appendChild(p)
-            if ("Participant"){
-                div3.appendChild(button)
-            }
             div2.appendChild(div3)
             div1.appendChild(div2)
             divFather.appendChild(div1);
@@ -154,6 +154,14 @@ function insertActivitiesToDom(data) {
 function deleteAllActivities(classNodeFather,classNodeSon) {
     //Delete nodo to DOM
     let fatherNode = document.querySelector(classNodeFather)
-    let sonNode = document.querySelector(classNodeSon)
-    if (fatherNode && sonNode) fatherNode.removeChild(sonNode)
+    /*let sonNode = document.querySelector(classNodeSon)
+    if (fatherNode && sonNode) fatherNode.removeChild(sonNode)*/
+    if (fatherNode.hasChildNodes()) {
+        let children = fatherNode.childNodes;
+        for (let i = 0; i < children.length; i++) {
+            // do something with each child as children[i]
+            // NOTE: List is live, adding or removing children will change the list
+            fatherNode.removeChild(children[i]);
+        }
+    }
 }
