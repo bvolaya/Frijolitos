@@ -2,11 +2,11 @@
 
 if (document.addEventListener){
     window.addEventListener('load',obtenerActividad(),false);
-    window.addEventListener('load',aproveActivity(),false);
+    //window.addEventListener('load',aproveActivity(),false);
 
 } else {
     window.attachEvent('onload',obtenerActividad());
-    window.attachEvent('onload', aproveActivity());
+    //window.attachEvent('onload', aproveActivity());
 }
 
 function obtenerActividad () {
@@ -123,6 +123,13 @@ function insertActivitiesDH(data) {
         divFather.appendChild(p);
         div.appendChild(divFather);
     }
+}
+
+function deleteAllActivities(classNodeFather,classNodeSon) {
+    //Delete nodo to DOM
+    let fatherNode = document.querySelector(classNodeFather)
+    let sonNode = document.querySelector(classNodeSon)
+    if (fatherNode && sonNode) fatherNode.removeChild(sonNode)
 }
 
 function AprobarActividades(data) {
