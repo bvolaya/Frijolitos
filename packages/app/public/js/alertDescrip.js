@@ -38,23 +38,23 @@ function aleta(data){
         },
         {
         title: 'Autor de la actividad.',
-        text: 'Brenda Benitez',
+        text: data[0].userId,
         },
         {
             title: 'Lugar.',
-            text:'a'
+            text: data[0].direction,
         },
         {
             title:'Hora del evento.',
-            text:'3:00p.m.'
+            text:data[0].date,
         },
         {
             title:'Cantidad e participantes.',
-            text:'9'
+            text: data[0],participante,
         },
         {
             title:'Categoria del evento.',
-            text:'Comunicacion',
+            text: data[0].categorie,
         },
     ]).then((result) => {
         if (result.value) {
@@ -80,7 +80,7 @@ function aleta(data){
 //         imageAlt: 'A tall image',
 //         confirmButtonText: 'Yes, delete it!'
 //     })
-};
+//};
 // $("#btn3").click(function(){
 //     Swal.fire({
 //         imageUrl: 'img/html5.png',
@@ -88,3 +88,36 @@ function aleta(data){
 //         imageAlt: 'A tall image'
 //     });
 // });
+
+// function aleta(){
+//     Swal.mixin({
+//       input: 'text', //puede ser text, number, email, password, textarea, select, radio
+//       confirmButtonText: 'Siguiente &rarr;',
+//       showCancelButton: true,
+//       progressSteps: ['1', '2', '3']
+//     }).queue([
+//       {
+//         title: 'Pregunta 1',
+//         text: '¿Color favorito?'
+//       },
+//       {
+//         title: 'Pregunta 2',
+//         text: '¿Animal favorito?'
+//       },
+//         {
+//         title: 'Pregunta 3',
+//         text: '¿País de origen?'
+//       }      
+//     ]).then((result) => {
+//       if (result.value) {
+//         Swal.fire({
+//           title: '¡Completado!',
+//           html:
+//             'Tus respuestas: <pre><code>' +
+//               JSON.stringify(result.value) +
+//             '</code></pre>',
+//           confirmButtonText: 'Ok'
+//         })
+//       }
+//     });
+// };
