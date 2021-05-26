@@ -87,7 +87,7 @@ function insertActivitiesDH(data) {
             let h4 = document.createElement("h4");
             h4.textContent = data[index].direction
             let h5 = document.createElement("h5");
-            h5.textContent = formatDate(data[index].date)
+            h5.textContent = FormatDate(data[index].date)
             let p = document.createElement("p");
             p.textContent = data[index].description
             p.textContent = data[index].description
@@ -175,4 +175,26 @@ function AprobarActividades(data) {
         divFather.appendChild(p);
         div.appendChild(divFather);
     }
+}
+
+function FormatDate(fecha) {
+    let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    let date = new Date(fecha)
+    let dayNumber = date.getDay();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = addZero(date.getDate());
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let str = `${dias[dayNumber]}, ${day} de ${meses[month]} de ${year}, ${addZero(hour)}:${addZero(minutes)}`;
+    return str;
+}
+
+function addZero(str) {
+    let newstr = new String(str)
+    if (newstr.length==1) {
+        return '0'+str;
+    }
+    return str;
 }
