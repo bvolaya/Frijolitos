@@ -80,14 +80,14 @@ function insertActivitiesDH(data) {
             let div4 = document.createElement("div");
             div4.className = "image"
             div4.width = "100%"
-            div4.text-align = center
+            div4.style.textAlign = "center"
             let img = document.createElement("img");
             img.src = data[index].image
             img.width = "200"
             let h4 = document.createElement("h4");
             h4.textContent = data[index].direction
             let h5 = document.createElement("h5");
-            h5.textContent = FormatDate(data[index].date)
+            h5.textContent = formatDate(data[index].date)
             let p = document.createElement("p");
             p.textContent = data[index].description
             p.textContent = data[index].description
