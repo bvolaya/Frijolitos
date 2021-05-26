@@ -102,15 +102,15 @@ function insertActivitiesDH(data) {
             button2.dataset.title = data[index].title
             button2.textContent = "Eliminar"
             button2.onclick =  function() {Eliminar(this)}
-
+            
             div3.appendChild(h3)
             div4.appendChild(img)
+            div3.appendChild(div4)
             div3.appendChild(h4)
             div3.appendChild(h5)
             div3.appendChild(p)
             div3.appendChild(button1)
             div3.appendChild(button2)
-            div3.appendChild(div4)
             div2.appendChild(div3)
             div1.appendChild(div2)
             divFather.appendChild(div1);
