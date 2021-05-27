@@ -1,82 +1,162 @@
+document.getElementById("form").addEventListener("submit", (e)=>{
+    e.preventDefault();
 
-var getData = function () {
-    var palabras = document.getElementById("palabras").value;
-    var nombreEvento = document.getElementById("nombreEvento").value;
-    var fecha = document.getElementById("fecha").value;
-    var direccion = document.getElementById("direccion").value;
-    var descripcion = document.getElementById("descripcion").value;
+    let url = window.location.href
+    let separador = url.split('/');
+    let actual = separador[separador.length - 2];
 
-    function getData() {
-        let categoria = document.getElementById("palabras").value;
-        let nombreEvento = document.getElementById("nombreEvento").value;
-        let fecha = document.getElementById("fecha").value;
-        let direccion = document.getElementById("direccion").value;
-        let descripcion = document.getElementById("descripcion").value;
-
-
-        if (palabras == "") {
-            document.getElementById("palabras").focus();
-        } else {
-
-            if (nombreEvento == "") {
-                document.getElementById("nombreEvento").focus();
-            } else {
-                if (fecha == "") {
-                    document.getElementById("fecha").focus();
-                } else {
-                    if (direccion == "") {
-                        document.getElementById("direccion").focus();
-                    } else {
-                        if (descripcion == "") {
-                            document.getElementById("descripcion").focus();
-                        } else {
-                            console.log(palabras + " " + nombreEvento + " " + fecha + " " + direccion + " " + descripcion);
-                        }
-                    }
-                }
-            }
+    let categoria = document.getElementById("palabras").value;
+    let nombreEvento = document.getElementById("nombreEvento").value;
+    let fecha = document.getElementById("fecha").value;
+    let direccion = document.getElementById("direccion").value;
+    let descripcion = document.getElementById("descripcion").value;
+    let imagen = document.getElementById("file").value;
+    if (actual =='modify') {
+        if (imagen == "") {
+            imagen = document.getElementById("img").dataset.path;
         }
-        try {
-            let user = sessionStorage.getItem('user')
-            user = JSON.parse(user).data
-            let myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-
-            let raw = JSON.stringify({
-                title: nombreEvento,
-                direction: direccion,
-                description: descripcion,
-                date: fecha,
-                categorie: categoria,
-                userId: user.id
-            });
-
-            let requestOptions = {
-                method: "POST",
-                headers: myHeaders,
-                body: raw,
-                redirect: "follow",
-            };
-
-            fetch("http://localhost:3000/activities", requestOptions)
-                .then((response) => response.text())
-                .then((result) => {
-                    console.log(result)
-                    alert("Actividad creada")
-                    window.location.href =
-                        "http://localhost:5000/html/tableroDeEventos.html";
-                })
-                .catch((error) => {
-                    console.log("error", error);
-                    alert("Error no se pudo crear el evento");
-                });
-
-        } catch (error) {
-            alert("Tienes que loguearte");
-            window.location.href =
-                "http://localhost:5000/html/login.html";
-        }
-
-
     }
-}
+
+    // console.log(categoria + "\n" + nombreEvento + "\n" + fecha + "\n" + direccion + "\n" + descripcion + "\n" + imagen);
+    // let user = sessionStorage.getItem('user')
+    // user = JSON.parse(user).data
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+    let method = 'POST';
+    let message = 'Actividad creada';
+    let raw = JSON.stringify({
+        title: nombreEvento,
+        direction: direccion,
+        description: descripcion,
+        date: fecha,
+        categorie: categoria,
+        image: imagen,
+        userId: 2
+    });
+    if (actual=='modify') {
+        method = 'PUT';
+        message = 'Actividad modificada';
+        id_actividad = separador[separador.length - 1];
+        raw = JSON.stringify({
+            id: id_actividad,
+            title: nombreEvento,
+            direction: direccion,
+            description: descripcion,
+            date: fecha,
+            categorie: categoria,
+            image: imagen,
+            userId: 2
+        });
+    }
+
+    let requestOptions = {
+        method: method,
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    fetch(`http://localhost:3000/activities`, requestOptions)
+    .then((response) => {
+        if (response.ok) {
+            return response.text();
+        } else if (response.status == 401) {
+            throw new Error("No se encontó actividad");
+        } else if (response.status == 404) {
+            throw new Error("Ruta no encontrada");
+        } else {
+            throw new Error("Error Interno");
+        }
+    })
+    .then((result) => {
+        // console.log(result)
+        const confirm = Swal.mixin({
+            didClose: (toast) => {
+                window.location.href = "http://localhost:5000/dashboard/psychology"
+            }
+        })
+        confirm.fire(
+            'Genial',
+            `${message}`,
+            'success',
+        )
+    })
+    .catch((error) => {
+        console.log(error)
+        const confirm = Swal.mixin({
+            didClose: (toast) => { }
+        })
+        confirm.fire(
+            'Error',
+            `${error}`,
+            'error',
+        )
+    });
+});
+window.addEventListener('load', (e)=>{
+    let url = window.location.href
+    let separador = url.split('/');
+    let actual = separador[separador.length-2];
+    if (actual=="modify") {
+        let id_actividad = separador[separador.length-1];
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+        document.querySelector("h4").innerText = "Modificar un evento";
+        document.querySelector("input.botons").value = "Actualizar";
+        document.querySelector("input[type='radio']").parentNode.remove()
+        document.title = "Modificar Evento|Health Space";
+        fetch(`http://localhost:3000/obtenerActividad/${id_actividad}`, requestOptions)
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else if (response.status == 401) {
+                    throw new Error("Acceso no autorizado");
+                } else if (response.status == 404) {
+                    throw new Error("Página no encontrada");
+                } else {
+                    throw new Error("Error Interno");
+                }
+            })
+            .then(result => {
+                let data = JSON.parse(result).data[0];
+                if (typeof data == "undefined") {
+                    const success = Swal.mixin({
+                        didClose: (toast) => {
+                            window.history.back();
+                        }
+                    })
+                    success.fire(
+                        '¡Error!',
+                        '¡No se encontró la actividad!',
+                        'error',
+                    )
+                }
+                // console.log(data)
+                document.getElementById("img").src = `${data.image}`;
+                document.getElementById("img").dataset.path = data.image;
+                document.getElementById("palabras").value = data.categorie;
+                document.getElementById("nombreEvento").value = data.title;
+                document.getElementById("fecha").value = data.date.substr(0, 16);
+                document.getElementById("direccion").value = data.direction;
+                document.getElementById("descripcion").value = data.description;
+            })
+            .catch(error => {
+                console.log(error)
+                const confirm = Swal.mixin({
+                    didClose: (toast) => {
+                        window.history.back();
+                    }
+                })
+                confirm.fire(
+                    'Error',
+                    `${error}`,
+                    'error',
+                )
+            });
+    } else {
+        document.querySelector("#img").parentNode.remove();
+    }
+});
