@@ -13,3 +13,7 @@ function authenticate (){
         window.location.href = "http://localhost:5000/events"
     }
 }
+
+function logout() {
+    sessionStorage.clear()
+}

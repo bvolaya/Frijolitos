@@ -20,9 +20,7 @@ function obtenerActividad () {
         })
         .catch(error => console.log('error', error));
 }
-function logout() {
-    sessionStorage.clear()
-}
+
 
 // Search
 
