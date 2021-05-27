@@ -139,7 +139,7 @@ function eliminarActividad(_this) {
     }).then((result) => {
         if (result.isConfirmed) {
             let data = JSON.stringify({
-                challengeId: _this.parentNode.parentNode.parentNode.id,
+                challengeId: _this.parentNode.parentNode.parentNode.parentNode.id,
                 userId: JSON.parse(sessionStorage.getItem('user')).data.id
             });
             let myHeaders = new Headers();
@@ -168,7 +168,7 @@ function eliminarActividad(_this) {
                 console.log(result);
                 const success = Swal.mixin({
                     didClose: (toast) => {
-                        _this.parentNode.parentNode.parentNode.remove()
+                        _this.parentNode.parentNode.parentNode.parentNode.remove()
                     }
                 })
                 success.fire(
