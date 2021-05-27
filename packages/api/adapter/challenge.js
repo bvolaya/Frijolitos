@@ -113,26 +113,6 @@ async function getActivitiesByUser(req, reply) {
   }
 }
 
-async function getActivity(req, reply) {
-
-  const { activityId } = req.params;
-  req.log.info(`Search activity ......`);
-
-  try {
-    const activity = await getActivity(activityId);
-    reply
-      .code(200)
-      .headers("Content-Type", "application/json; charset=utf-8")
-      .send({ data: activity });
-  } catch (error) {
-    console.log(error);
-    reply
-      .code(500)
-      .headers("Content-Type", "application/json; charset=utf-8")
-      .send({ data: "Error Interno " + error.message });
-  }
-}
-
 async function getActivityById(req, reply) {
 
   const { activityId } = req.params;
