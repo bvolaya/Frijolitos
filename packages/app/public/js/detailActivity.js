@@ -142,89 +142,128 @@ window.addEventListener("load", ()=>{
 });
 
 function suscribe(event) {
-
-    let idActivities = event.path[3].getAttribute('id')
+    let url = window.location.href.split('/');
+    let id = url[url.length - 1]
     let idUser
-    if (sessionStorage.getItem('user')) {
-        idUser = JSON.parse(sessionStorage.getItem('user')).data.id
-    } else { throw new Error("User no Login") }
+    if (sessionStorage.getItem('user')){
+        idUser= JSON.parse(sessionStorage.getItem('user')).data.id
+    }else {throw new Error("User no Login")}
 
+    let Header = new Headers();
+    Header.append("Content-Type", "application/json");
 
-    try {
-        let Header = new Headers();
-        Header.append("Content-Type", "application/json");
+    let raw = JSON.stringify({
+        "userId": idUser,
+        "activityId": parseInt(id)
+    });
 
-        let raw = JSON.stringify({
-            "userId": idUser,
-            "activityId": idActivities
-        });
-
-        const requestOptions = {
-            method: 'POST',
-            headers: Header,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("http://localhost:3000/suscribe", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-
-                const confirm = Swal.mixin({
-                    didClose: (toast) => {
-                        location.reload()
-                    }
-                })
-                confirm.fire(
-                    'Genial',
-                    'Te has Unido a la actividad',
-                    'success',
-                )
-                // location.reload()
-            })
-            .catch(error => console.log('error', error));
-    } catch (error) {
-        console.log(error.message)
-    }
-}
-
-function eliminarActividad(id) {
-
-    if (confirm("¿Está seguro de salirse de la actividad?")) {
-        let data = JSON.stringify({
-            suscriptorId: id.split('_')[1]
-        });
-        let myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        let requestOptions = {
-            method: "POST",
-            headers: myHeaders,
-            body, data,
-            redirect: "follow",
-        };
-
-        fetch("http://localhost:3000/eliminarActividadUser", requestOptions)
-            .then((response) => {
-                if (response.ok) {
-                    return response.text();
-                } else if (response.status == 401) {
-                    throw new Error("Error del servidor");
-                } else {
-                    throw new Error("Error Interno");
+    const requestOptions = {
+        method: 'POST',
+        headers: Header,
+        body: raw,
+        redirect: 'follow'
+    };
+    
+    fetch("http://localhost:3000/suscribe", requestOptions)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else if (response.status == 401) {
+                throw new Error("Acceso no autorizado");
+            } else if (response.status == 404) {
+                throw new Error("Página no encontrada");
+            } else {
+                throw new Error("Error Interno");
+            }
+        })
+        .then(result => {
+            console.log(result);
+            const confirm = Swal.mixin({
+                didClose: (toast) => {
+                    location.reload()
                 }
             })
-            .then((result) => {
-                console.log(result);
-                document.getElementById(id).parentElement.parentElement.remove()
-                alertify.success(result);
+            confirm.fire(
+                'Genial',
+                'Te has Unido a la actividad',
+                'success',
+            )
+            // location.reload()
+        })
+        .catch(error => {
+            console.log("error", error);
+            Swal.fire(
+                '¡Error!',
+                '¡Error al unirse a la actividad!',
+                'error',
+            )
+        });
+}
 
-            })
-            .catch((error) => {
-                console.log("error", error);
-                alertify.error("Error del servidor");
+function eliminarActividad(_this) {
+
+    Swal.fire({
+        title: '¿Está seguro de eliminar la suscripción a la actividad?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let url = window.location.href.split('/');
+            let id = url[url.length - 1]
+            let data = JSON.stringify({
+                challengeId: parseInt(id),
+                userId: JSON.parse(sessionStorage.getItem('user')).data.id
             });
-    }
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            let requestOptions = {
+                method: "PUT",
+                headers: myHeaders,
+                body: data,
+                redirect: "follow",
+            };
+
+            fetch("http://localhost:3000/eliminarActividadUser", requestOptions)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.text();
+                    } else if (response.status == 401) {
+                        throw new Error("Acceso no autorizado");
+                    } else if (response.status == 404) {
+                        throw new Error("Página no encontrada");
+                    } else {
+                        throw new Error("Error Interno");
+                    }
+                })
+                .then((result) => {
+                    console.log(result);
+                    const success = Swal.mixin({
+                        didClose: (toast) => {
+                            window.location.reload()
+                        }
+                    })
+                    success.fire(
+                        '¡Eliminado!',
+                        '¡Actividad eliminada!',
+                        'success',
+                    )
+
+                })
+                .catch((error) => {
+                    console.log("error", error);
+                    Swal.fire(
+                        '¡Error!',
+                        '¡No se pudo eliminar el evento!',
+                        'error',
+                    )
+                });
+        }
+    })
 }
 
 function FormatDate(fecha) {

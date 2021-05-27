@@ -144,7 +144,7 @@ function eliminarActividad(_this) {
     }).then((result) => {
         if (result.isConfirmed) {
             let data = JSON.stringify({
-                challengeId: _this.parentNode.parentNode.parentNode.parentNode.id,
+                challengeId:parseInt(_this.parentNode.parentNode.parentNode.parentNode.id),
                 userId: JSON.parse(sessionStorage.getItem('user')).data.id
             });
             let myHeaders = new Headers();

@@ -122,7 +122,7 @@ async function getActivityDetails(id) {
       let recomended = [];
       if (activity.length) {
         participants = await sequelize.query(`
-                              SELECT U.*, PP."nickName", PP.img FROM users AS U LEFT JOIN "profileParticipants" AS PP ON U.id=PP."userId" LEFT JOIN suscriptors AS S ON U.id=S."userId" WHERE S."challengeId"=${activity[0].id};`,
+                              SELECT U.*, PP."nickName", PP.img FROM users AS U LEFT JOIN "profileParticipants" AS PP ON U.id=PP."userId" LEFT JOIN suscriptors AS S ON U.id=S."userId" WHERE S."challengeId"=${activity[0].id} AND S."isActive"=true;`,
                               { type: QueryTypes.SELECT }
                             );
         recomendedCategorie = await sequelize.query(`
