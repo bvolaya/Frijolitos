@@ -54,7 +54,7 @@ async function getAllActivity(id) {
 async function getActivitiesPsycology(id) {
   try {
       let activities = await sequelize.query(`
-      SELECT * FROM challenges WHERE "userId"=${id};`
+      SELECT * FROM challenges WHERE "userId"=${id} AND "isActive"=true;`
           , { type: QueryTypes.SELECT }
       )
       return activities;

@@ -72,6 +72,9 @@ function insertActivitiesDH(data) {
             let div1 = document.createElement("div");
             div1.className = "card sombra subcards"
             div1.id = data[index].id
+            div1.onclick = () => {
+                window.location.href = `/detail/${data[index].id}`
+            }
             let div2 = document.createElement("div");
             div2.className = "actividadPsicologo"
             let div3 = document.createElement("div");

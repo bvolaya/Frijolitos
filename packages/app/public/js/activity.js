@@ -109,18 +109,25 @@ function insertActivitiesToDom(data) {
             let div1 = document.createElement("div");
             div1.className = "card sombra subcards"
             div1.id = data[index].id
+            div1.onclick = () => {
+                window.location.href = `/detail/${data[index].id}`
+            }
             let div2 = document.createElement("div");
             div2.className = "actividadParticipante"
             let div3 = document.createElement("div");
             let h3 = document.createElement("h3");
             h3.textContent = data[index].title
+            let div4 = document.createElement("div");
+            div4.className = "image"
+            div4.width = "100%"
+            div4.style.textAlign = "center"
             let img = document.createElement("img");
             img.src = data[index].image
             img.width = "200"
             let h4 = document.createElement("h4");
             h4.textContent = data[index].direction
             let h5 = document.createElement("h5");
-            h5.textContent = data[index].date
+            h5.textContent = FormatDate(data[index].date)
             let p = document.createElement("p");
             p.textContent = data[index].description
 
@@ -133,7 +140,8 @@ function insertActivitiesToDom(data) {
             }
             
             div3.appendChild(h3)
-            div3.appendChild(img)
+            div4.appendChild(img)
+            div3.appendChild(div4)
             div3.appendChild(h4)
             div3.appendChild(h5)
             div3.appendChild(p)
@@ -164,4 +172,26 @@ function deleteAllActivities(classNodeFather,classNodeSon) {
             fatherNode.removeChild(children[i]);
         }
     }
+}
+
+function FormatDate(fecha) {
+    let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    let date = new Date(fecha)
+    let dayNumber = date.getDay();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = addZero(date.getDate());
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let str = `${dias[dayNumber]}, ${day} de ${meses[month]} de ${year}, ${addZero(hour)}:${addZero(minutes)}`;
+    return str;
+}
+
+function addZero(str) {
+    let newstr = new String(str)
+    if (newstr.length==1) {
+        return '0'+str;
+    }
+    return str;
 }
