@@ -60,4 +60,10 @@ app.get('/dashboard/psychology', (request,response)=>{
     response.sendFile(__dirname +'/public/html/dashPsicologo.html')
 })
 
+// Ruta de detalle actividad
+app.get('/detail/:id', (request, response, next) => {
+    response.sendFile(__dirname + '/public/html/detalleActividad.html')
+    // console.log(request.params.id);
+})
+
 app.listen(port, () => console.log(`listening on port ${port}!`));

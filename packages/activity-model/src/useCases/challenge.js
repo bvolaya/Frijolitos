@@ -117,4 +117,34 @@ async function modifyActivity(changeActivity){
     }
 }
 
-module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity, getActivity, getActivitiesPsycology};
+async function getActivityDetails(id) {
+    try {
+      let activity = await getActivity(id);
+      let participants = [];
+      let recomended = [];
+      if (activity.length) {
+        participants = await sequelize.query(`
+                              SELECT U.*, PP."nickName", PP.img FROM users AS U LEFT JOIN "profileParticipants" AS PP ON U.id=PP."userId" LEFT JOIN suscriptors AS S ON U.id=S."userId" WHERE S."challengeId"=${activity[0].id};`,
+                              { type: QueryTypes.SELECT }
+                            );
+        recomendedCategorie = await sequelize.query(`
+                              SELECT * FROM challenges AS CH WHERE id!=${activity[0].id} AND categorie IN ('${activity[0].categorie}') AND "isActive"=true ORDER BY title LIMIT 10;`,
+                              { type: QueryTypes.SELECT }
+                            );
+        if (recomendedCategorie.length<10) {
+          let limit = 10-recomendedCategorie.length;
+          recomendedOtherCategories = await sequelize.query(`
+                                SELECT * FROM challenges AS CH WHERE categorie NOT IN ('${activity[0].categorie}') AND "isActive"=true ORDER BY categorie, title LIMIT ${limit};`,
+                                { type: QueryTypes.SELECT }
+                              );
+          recomended = recomendedCategorie.concat(recomendedOtherCategories);
+        }
+      }
+      return { activity, participants, recomended };
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  
+  }
+
+module.exports = { createdActivity, getAllActivity, getActivityByUser,modifyActivity, getActivity, getActivitiesPsycology, getActivityDetails};

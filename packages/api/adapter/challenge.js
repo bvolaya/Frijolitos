@@ -3,7 +3,9 @@ const {
   getAllActivity,
   getActivityByUser,
   changeActivity,
-  getActivitiesPsycology
+  getActivitiesPsycology,
+  getActivity,
+  getActivityDetails
 } = require("@frijol/activity-model");
 
 
@@ -131,5 +133,42 @@ async function getActivity(req, reply) {
   }
 }
 
+async function getActivityById(req, reply) {
 
-module.exports = { createdActivities, getAllActivities, getActivitiesByUser,changeActivities, getActivity, getAllActivitiesPsycology}
+  const { activityId } = req.params;
+  req.log.info(`Search activity ...... by ID ${parseInt(activityId)}`);
+  try {
+    const activity = await getActivity(parseInt(activityId));
+    reply
+      .code(200)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: activity });
+  } catch (error) {
+    console.log(error);
+    reply
+      .code(500)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: "Error Interno " + error.message });
+  }
+}
+
+async function activityDetails(req, reply) {
+
+  const { activityId } = req.params;
+  req.log.info(`Search activity details ...... by ID ${parseInt(activityId)}`);
+  try {
+    const activity = await getActivityDetails(parseInt(activityId));
+    reply
+      .code(200)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: activity });
+  } catch (error) {
+    console.log(error);
+    reply
+      .code(500)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: "Error Interno " + error.message });
+  }
+}
+
+module.exports = { createdActivities, getAllActivities, getActivitiesByUser,changeActivities, getActivity, getAllActivitiesPsycology, activityDetails, getActivityById}
