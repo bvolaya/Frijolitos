@@ -75,26 +75,35 @@ function insertActivitiesToDom(data) {
             let div3 = document.createElement("div");
             let h3 = document.createElement("h3");
             h3.textContent = data[index].title
+            let div4 = document.createElement("div");
+            div4.className = "image"
+            div4.width = "100%"
+            div4.style.textAlign = "center"
             let img = document.createElement("img");
             img.src = data[index].image
             img.width = "200"
             let h4 = document.createElement("h4");
             h4.textContent = data[index].direction
             let h5 = document.createElement("h5");
-            h5.textContent = data[index].date
+            h5.textContent = FormatDate(data[index].date)
             let p = document.createElement("p");
             p.textContent = data[index].description
+            let div5 = document.createElement("div");
+            div5.style.width = "100%";
+            div5.style.textAlign = "center";
             let button = document.createElement("button");
             button.className = "btn"
             button.textContent = "Eliminar"
-            //button.onclick =  function() {suscribe(event)}
-
+            button.onclick =  function() {eliminarActividad(this)}
+            
+            div5.appendChild(button)
             div3.appendChild(h3)
-            div3.appendChild(img)
+            div4.appendChild(img)
+            div3.appendChild(div4)
             div3.appendChild(h4)
             div3.appendChild(h5)
             div3.appendChild(p)
-            div3.appendChild(button)
+            div3.appendChild(div5)
             div2.appendChild(div3)
             div1.appendChild(div2)
             divFather.appendChild(div1);
@@ -116,42 +125,89 @@ function deleteAllActivities(classNodeFather,classNodeSon) {
     if (fatherNode && sonNode) fatherNode.removeChild(sonNode)
 }
 
-function eliminarActividad(id){
-   
-    if (confirm("¿Está seguro de eliminar la actividad?")){
-        let data = JSON.stringify({
-            suscriptorId: id.split('_')[1]
-          });
-        let myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        
-        let requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body, data,
-          redirect: "follow",
-        };
-        
-        fetch("http://localhost:3000/eliminarActividadUser", requestOptions)
-          .then((response) => {
-              if (response.ok) {
-                return response.text();
-              } else if(response.status==401){
-                throw new Error("Error del servidor");
-              }else{
-                  throw new Error("Error Interno");
-              }       })
-          .then((result) => {
-            console.log(result);
-            document.getElementById(id).parentElement.parentElement.remove()
-            alertify.success(result);
-            
-          })
-          .catch((error) => {
-            console.log("error", error);
-            alertify.error("Error del servidor");
-          });
+function eliminarActividad(_this) {
 
-          
+
+    Swal.fire({
+        title: '¿Está seguro de eliminar la suscripción a la actividad?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let data = JSON.stringify({
+                challengeId: _this.parentNode.parentNode.parentNode.id,
+                userId: JSON.parse(sessionStorage.getItem('user')).data.id
+            });
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            let requestOptions = {
+                method: "PUT",
+                headers: myHeaders,
+                body: data,
+                redirect: "follow",
+            };
+
+            fetch("http://localhost:3000/eliminarActividadUser", requestOptions)
+            .then((response) => {
+                if (response.ok) {
+                    return response.text();
+                } else if (response.status == 401) {
+                    throw new Error("Acceso no autorizado");
+                } else if (response.status == 404) {
+                    throw new Error("Página no encontrada");
+                } else {
+                    throw new Error("Error Interno");
+                }
+            })
+            .then((result) => {
+                console.log(result);
+                const success = Swal.mixin({
+                    didClose: (toast) => {
+                        _this.parentNode.parentNode.parentNode.remove()
+                    }
+                })
+                success.fire(
+                    '¡Eliminado!',
+                    '¡Actividad eliminada!',
+                    'success',
+                )
+
+            })
+            .catch((error) => {
+                console.log("error", error);
+                Swal.fire(
+                    '¡Error!',
+                    '¡No se pudo eliminar el evento!',
+                    'error',
+                )
+            });
+        }
+    })
+}
+
+function FormatDate(fecha) {
+    let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    let date = new Date(fecha)
+    let dayNumber = date.getDay();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = addZero(date.getDate());
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let str = `${dias[dayNumber]}, ${day} de ${meses[month]} de ${year}, ${addZero(hour)}:${addZero(minutes)}`;
+    return str;
+}
+
+function addZero(str) {
+    let newstr = new String(str)
+    if (newstr.length==1) {
+        return '0'+str;
     }
+    return str;
 }

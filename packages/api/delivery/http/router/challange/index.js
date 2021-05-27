@@ -6,7 +6,7 @@ async function challengeRouter(fastify) {
   fastify.get("/activities/:userId/profile", challenge.getActivitiesByUser);
   fastify.put("/activities", challenge.changeActivities);
   fastify.post("/suscribe", suscriptor.createSuscriptors);
-  fastify.post("/eliminarActividadUser", suscriptor.deleteSuscrip);
+  fastify.put("/eliminarActividadUser", suscriptor.deleteSuscrip);
   fastify.get("/obtenerActividad/:activityId", challenge.getActivityById);
   fastify.get("/activitiesPsycology/:userId", challenge.getAllActivitiesPsycology);
   fastify.get("/activityDetails/:activityId", challenge.activityDetails);
