@@ -1,5 +1,3 @@
-
-
 const { QueryTypes } = require("sequelize");
 const sequelize = require("postgres-db-connect");
 
