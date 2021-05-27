@@ -54,7 +54,7 @@ window.addEventListener("load", ()=>{
                         }
                         strParticipantes += `
                             <div class='img_participante'>
-                                <img src="../img/${elem.img}" alt="Foto del participante" class="circle">
+                                <img src="${elem.img}" alt="Foto del participante" class="circle">
                                 <label>${nombreParticipante}</label>
                             </div>
                         `;
@@ -95,7 +95,7 @@ window.addEventListener("load", ()=>{
                 let detalle = `
                             <h2 style="width: 100%; background-color: var(--primario); color: var(--blanco);">${actividad.title}</h2>
                             <div style="padding-left: 10%; padding-right: 10%;">
-                                <img src="../img/${actividad.image}" alt="Imagen de actividad" width="100%" style="max-height: 500px;">
+                                <img src="${actividad.image}" alt="Imagen de actividad" width="100%" style="max-height: 500px;">
                             </div>
                             <div style='margin-top: 1rem; padding-left: 10%; font-size: 20px;'>
                                 <div style="float: left;">
@@ -126,7 +126,7 @@ window.addEventListener("load", ()=>{
                         strRecomendaciones += `
                             <div class="card" onclick="window.location.href='/detail/${elem.id}'">
                                 <h3 style="width: 100%; background-color: var(--primario); color: var(--blanco);">${elem.title}</h3>
-                                <img src="../img/${elem.image}" alt="Imagen de la actividad" width="100%" style="max-height: 300px;">
+                                <img src="${elem.image}" alt="Imagen de la actividad" width="100%" style="max-height: 300px;">
                             </div>
                         `;
                     });
