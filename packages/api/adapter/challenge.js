@@ -43,6 +43,13 @@ async function changeActivities(req, reply) {
     data['image'] = url.image
   }
 
+  if(data.image === "undefined"){
+    Object.keys(data).map(item => {
+      if(item === "image")
+        delete data[item];
+    })
+  }
+
   req.log.info(`Change activity ${data.title}`);
   try {
     const activity = await changeActivity(data);
