@@ -12,8 +12,12 @@ const {uploadPicture} = require('../utils')
 async function createdActivities(req, reply) {
 
     const data = req.body;
-    const url = await uploadPicture(req.files)
-    data['image'] = url.image
+    let url;
+    if(req.files){
+      url= await uploadPicture(req.files)
+      data['image'] = url.image
+    }
+
   req.log.info(`Creating activity ${data.title}`);
 
   try {
@@ -33,8 +37,11 @@ async function createdActivities(req, reply) {
 }
 async function changeActivities(req, reply) {
   const data = req.body;
-  const url = await uploadPicture(req.files)
-  data['image'] = url.image
+  let url;
+  if(req.files){
+    url= await uploadPicture(req.files)
+    data['image'] = url.image
+  }
 
   req.log.info(`Change activity ${data.title}`);
   try {

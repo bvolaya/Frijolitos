@@ -51,7 +51,7 @@ function search(event) {
 
 function suscribe(event) {
     let path = event.path || (event.composedPath && event.composedPath());
-    let idActivities = path[3].getAttribute('id')
+    let idActivities = path[3].parentNode.getAttribute('id')
     let idUser
     if (sessionStorage.getItem('user')){
         idUser= JSON.parse(sessionStorage.getItem('user')).data.id
