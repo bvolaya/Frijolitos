@@ -4,13 +4,13 @@ document.getElementById("form").addEventListener("submit", (e)=>{
     let url = window.location.href
     let separador = url.split('/');
     let actual = separador[separador.length - 2];
-
+    let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
     let categoria = document.getElementById("palabras").value;
     let nombreEvento = document.getElementById("nombreEvento").value;
     let fecha = document.getElementById("fecha").value;
     let direccion = document.getElementById("direccion").value;
     let descripcion = document.getElementById("descripcion").value;
-    let imagen = document.getElementById("file").value;
+    let imagen = document.getElementById("image").files[0];
     if (actual =='modify') {
         if (imagen == "") {
             imagen = document.getElementById("img").dataset.path;
@@ -20,41 +20,36 @@ document.getElementById("form").addEventListener("submit", (e)=>{
     // console.log(categoria + "\n" + nombreEvento + "\n" + fecha + "\n" + direccion + "\n" + descripcion + "\n" + imagen);
     // let user = sessionStorage.getItem('user')
     // user = JSON.parse(user).data
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    
+    let formdata = new FormData();
+        formdata.append("title", nombreEvento);
+        formdata.append("direction", direccion);
+        formdata.append("description", descripcion);
+        formdata.append("date", fecha);
+        formdata.append("categorie", categoria);
+        formdata.append("userId", idUser);
+        formdata.append("image", imagen);
+
     let method = 'POST';
     let message = 'Actividad creada';
-    let raw = JSON.stringify({
-        title: nombreEvento,
-        direction: direccion,
-        description: descripcion,
-        date: fecha,
-        categorie: categoria,
-        image: imagen,
-        userId: 2
-    });
+
     if (actual=='modify') {
         method = 'PUT';
         message = 'Actividad modificada';
-        id_actividad = separador[separador.length - 1];
-        raw = JSON.stringify({
-            id: id_actividad,
-            title: nombreEvento,
-            direction: direccion,
-            description: descripcion,
-            date: fecha,
-            categorie: categoria,
-            image: imagen,
-            userId: 2
-        });
+        let id_actividad = separador[separador.length - 1];
+        formdata.append("id", id_actividad);
+        formdata.append("title", nombreEvento);
+        formdata.append("direction", direccion);
+        formdata.append("description", descripcion);
+        formdata.append("date", fecha);
+        formdata.append("categorie", categoria);
+        formdata.append("userId", idUser);
+        formdata.append("image", imagen);
     }
 
     let requestOptions = {
         method: method,
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow"
+        body: formdata,
+        redirect: 'follow'
     };
 
     fetch(`http://localhost:3000/activities`, requestOptions)
