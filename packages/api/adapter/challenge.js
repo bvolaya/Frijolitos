@@ -38,7 +38,7 @@ async function createdActivities(req, reply) {
 async function changeActivities(req, reply) {
   const data = req.body;
   let url;
-  if(req.files){
+  if(req.files.image){
     url= await uploadPicture(req.files)
     data['image'] = url.image
   }

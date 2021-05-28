@@ -11,15 +11,7 @@ document.getElementById("form").addEventListener("submit", (e)=>{
     let direccion = document.getElementById("direccion").value;
     let descripcion = document.getElementById("descripcion").value;
     let imagen = document.getElementById("image").files[0];
-    if (actual =='modify') {
-        if (imagen == "") {
-            imagen = document.getElementById("img").dataset.path;
-        }
-    }
 
-    // console.log(categoria + "\n" + nombreEvento + "\n" + fecha + "\n" + direccion + "\n" + descripcion + "\n" + imagen);
-    // let user = sessionStorage.getItem('user')
-    // user = JSON.parse(user).data
     let formdata = new FormData();
         formdata.append("title", nombreEvento);
         formdata.append("direction", direccion);
@@ -37,13 +29,6 @@ document.getElementById("form").addEventListener("submit", (e)=>{
         message = 'Actividad modificada';
         let id_actividad = separador[separador.length - 1];
         formdata.append("id", id_actividad);
-        formdata.append("title", nombreEvento);
-        formdata.append("direction", direccion);
-        formdata.append("description", descripcion);
-        formdata.append("date", fecha);
-        formdata.append("categorie", categoria);
-        formdata.append("userId", idUser);
-        formdata.append("image", imagen);
     }
 
     let requestOptions = {
