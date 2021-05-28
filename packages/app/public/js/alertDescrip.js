@@ -29,8 +29,8 @@ function aleta(data){
         {
         imageUrl: data[0].image,
         title: data[0].title,
-        imageWidth: 350,
-        imageHeight: 200,
+        imageWidth: 250,
+        imageHeight: 160,
         },
         {
         title: 'Descripción',
@@ -50,7 +50,7 @@ function aleta(data){
         },
         {
             title:'Cantidad e participantes.',
-            text: data[0],participante,
+            text: '8',
         },
         {
             title:'Categoria del evento.',
@@ -107,7 +107,7 @@ function aleta(data){
 //         {
 //         title: 'Pregunta 3',
 //         text: '¿País de origen?'
-//       }      
+//       }
 //     ]).then((result) => {
 //       if (result.value) {
 //         Swal.fire({
@@ -120,4 +120,4 @@ function aleta(data){
 //         })
 //       }
 //     });
-// };
+// }
