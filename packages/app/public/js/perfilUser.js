@@ -16,7 +16,9 @@ function insertUser(data) {
             div1.className = "col-12 my-13 pt-3 shadow"
             let img = document.createElement("img");
             img.src = data.profile.img
-            img.width = '400'
+            img.style.width = "200px";
+            img.style.minWidth = "200px";
+            img.style.height = "160px";
             img.className = "float-left rounded-circle mr-2"
             let h1 = document.createElement("h1");
             h1.textContent = data.firstName+' '+data.lastName
@@ -86,7 +88,9 @@ function insertActivitiesToDom(data) {
             div4.style.textAlign = "center"
             let img = document.createElement("img");
             img.src = data[index].image
-            img.width = "200"
+            img.style.width = "200px";
+            img.style.minWidth = "200px";
+            img.style.height = "160px";
             let h4 = document.createElement("h4");
             h4.textContent = data[index].direction
             let h5 = document.createElement("h5");
@@ -198,7 +202,7 @@ function eliminarActividad(_this) {
 function FormatDate(fecha) {
     let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     let dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-    let date = new Date(fecha)
+    let date = new Date(fecha.substr(0, 19))
     let dayNumber = date.getDay();
     let year = date.getFullYear();
     let month = date.getMonth();

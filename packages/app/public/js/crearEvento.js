@@ -116,7 +116,9 @@ window.addEventListener('load', (e)=>{
                 }
                 // console.log(data)
                 document.getElementById("img").src = `${data.image}`;
-                document.getElementById("img").dataset.path = data.image;
+                document.getElementById("img").style.width = "80%";
+                document.getElementById("img").style.minWidth = "200px";
+                document.getElementById("img").style.maxHeight = "300px";
                 document.getElementById("palabras").value = data.categorie;
                 document.getElementById("nombreEvento").value = data.title;
                 document.getElementById("fecha").value = data.date.substr(0, 16);

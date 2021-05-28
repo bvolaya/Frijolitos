@@ -126,7 +126,7 @@ window.addEventListener("load", ()=>{
                         strRecomendaciones += `
                             <div class="card" onclick="window.location.href='/detail/${elem.id}'">
                                 <h3 style="width: 100%; background-color: var(--primario); color: var(--blanco);">${elem.title}</h3>
-                                <img src="${elem.image}" alt="Imagen de la actividad" width="100%" style="max-height: 300px;">
+                                <img src="${elem.image}" alt="Imagen de la actividad" width="70%" style="height: 200px; min-width: 160px;">
                             </div>
                         `;
                     });
@@ -269,7 +269,7 @@ function eliminarActividad(_this) {
 function FormatDate(fecha) {
     let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     let dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-    let date = new Date(fecha)
+    let date = new Date(fecha.substr(0, 19))
     let dayNumber = date.getDay();
     let year = date.getFullYear();
     let month = date.getMonth();
