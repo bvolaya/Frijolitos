@@ -22,7 +22,7 @@ module.exports = function setupChallengeModel() {
       allowNull: false,
     },
     date: {
-      type: Sequelize.DATEONLY,
+      type: Sequelize.DATE,
       allowNull: false,
     },
     image: {

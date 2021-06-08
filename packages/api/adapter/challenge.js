@@ -3,15 +3,21 @@ const {
   getAllActivity,
   getActivityByUser,
   changeActivity,
-  getActivitiesPsycology
+  getActivitiesPsycology,
+  getActivity,
+  getActivityDetails
 } = require("@frijol/activity-model");
 const {uploadPicture} = require('../utils')
 
 async function createdActivities(req, reply) {
 
     const data = req.body;
-    const url = await uploadPicture(req.files)
-    data['image'] = url.image
+    let url;
+    if(req.files){
+      url= await uploadPicture(req.files)
+      data['image'] = url.image
+    }
+
   req.log.info(`Creating activity ${data.title}`);
 
   try {
@@ -31,8 +37,18 @@ async function createdActivities(req, reply) {
 }
 async function changeActivities(req, reply) {
   const data = req.body;
-  const url = await uploadPicture(req.files)
-  data['image'] = url.image
+  let url;
+  if(req.files.image){
+    url= await uploadPicture(req.files)
+    data['image'] = url.image
+  }
+
+  if(data.image === "undefined"){
+    Object.keys(data).map(item => {
+      if(item === "image")
+        delete data[item];
+    })
+  }
 
   req.log.info(`Change activity ${data.title}`);
   try {
@@ -117,13 +133,12 @@ async function getActivitiesByUser(req, reply) {
   }
 }
 
-async function getActivity(req, reply) {
+async function getActivityById(req, reply) {
 
   const { activityId } = req.params;
-  req.log.info(`Search activity ......`);
-
+  req.log.info(`Search activity ...... by ID ${parseInt(activityId)}`);
   try {
-    const activity = await getActivity(activityId);
+    const activity = await getActivity(parseInt(activityId));
     reply
       .code(200)
       .headers("Content-Type", "application/json; charset=utf-8")
@@ -137,5 +152,23 @@ async function getActivity(req, reply) {
   }
 }
 
+async function activityDetails(req, reply) {
 
-module.exports = { createdActivities, getAllActivities, getActivitiesByUser,changeActivities, getActivity, getAllActivitiesPsycology}
+  const { activityId } = req.params;
+  req.log.info(`Search activity details ...... by ID ${parseInt(activityId)}`);
+  try {
+    const activity = await getActivityDetails(parseInt(activityId));
+    reply
+      .code(200)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: activity });
+  } catch (error) {
+    console.log(error);
+    reply
+      .code(500)
+      .headers("Content-Type", "application/json; charset=utf-8")
+      .send({ data: "Error Interno " + error.message });
+  }
+}
+
+module.exports = { createdActivities, getAllActivities, getActivitiesByUser,changeActivities, getActivity, getAllActivitiesPsycology, activityDetails, getActivityById}

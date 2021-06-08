@@ -29,22 +29,17 @@ async function createdSuscritor(userId, challengeId) {
   }
 }
 
-async function deleteSuscriptor(suscriptorId) {
+async function deleteSuscriptor(data) {
   try {
-    if (
-      suscriptorId === ""
-    ) {
-      logger.error(
-        `[fr-activity-module]: Information invalid, SuscriptorId: ${suscriptorId}`
-      );
-      throw new Error("Invalid Information");
+    if (!data) {
+      throw new Error("Invalid Input, We need the information about the activity and user")
     }
 
-    let deleteSuscriptor = await sequelize.query(
-      `UPDATE suscriptors SET "isActive"=false, "updatedAt"=now() WHERE id=${suscriptorId}`,
+    let deleteResult = await sequelize.query(
+      `UPDATE suscriptors SET "isActive"=false, state='Cancelado', "updatedAt"=now() WHERE "challengeId"=${data.challengeId} AND "userId"=${data.userId};`,
       { type: QueryTypes.UPDATE }
     );
-
+    return deleteResult[0][0]
   } catch (error) {
     logger.error(
       `[fr-activity-module]: Error al eliminar un suscriptor :${error.message}`

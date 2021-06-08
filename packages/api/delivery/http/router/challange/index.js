@@ -12,10 +12,10 @@ async function challengeRouter(fastify) {
       { name: 'image', maxCount: 1 }
     ]) }, challenge.changeActivities);
   fastify.post("/suscribe", suscriptor.createSuscriptors);
-  fastify.post("/eliminarActividadUser", suscriptor.deleteSuscrip);
-  fastify.post("/obtenerActividad/:activityId", challenge.getActivity);
+  fastify.put("/eliminarActividadUser", suscriptor.deleteSuscrip);
+  fastify.get("/obtenerActividad/:activityId", challenge.getActivityById);
   fastify.get("/activitiesPsycology/:userId", challenge.getAllActivitiesPsycology);
-
+  fastify.get("/activityDetails/:activityId", challenge.activityDetails);
 }
 
 module.exports = challengeRouter;

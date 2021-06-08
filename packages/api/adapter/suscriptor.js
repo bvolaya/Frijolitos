@@ -28,23 +28,27 @@ async function deleteSuscrip(req, reply) {
   const data = req.body;
 
   req.log.info(
-    `Deleting SuscriptorId ${data.suscriptorId}`
+    `Delete suscript with challengeId=${data.challengeId} and userId=${data.userId}`
   );
 
   try {
-    await deleteSuscriptor(data.suscriptorId);
+    const deleteSusc = await deleteSuscriptor(data);
     reply
-      .code(200)
+      .code(201)
       .headers("Content-Type", "application/json; charset=utf-8")
-      .send({ data: '¡Te has salido de la actividad!' });
+      .send({
+        status: 201,
+        data: deleteSusc
+      });
   } catch (error) {
-    req.log.error(
-      `Error to delete SuscriptorId ${data.suscriptorId} because ${error.message}`
-    );
+    console.log(error);
     reply
       .code(500)
       .headers("Content-Type", "application/json; charset=utf-8")
-      .send({ data: "Error Interno " + error.message });
+      .send({
+        status: 500,
+        data: "Error Interno " + error.message
+      });
   }
 }
 

@@ -51,7 +51,7 @@ function search(event) {
 
 function suscribe(event) {
     let path = event.path || (event.composedPath && event.composedPath());
-    let idActivities = path[3].getAttribute('id')
+    let idActivities = path[3].parentNode.getAttribute('id')
     let idUser
     if (sessionStorage.getItem('user')){
         idUser= JSON.parse(sessionStorage.getItem('user')).data.id
@@ -123,7 +123,9 @@ function insertActivitiesToDom(data) {
             div4.style.textAlign = "center"
             let img = document.createElement("img");
             img.src = data[index].image
-            img.width = "200"
+            img.style.width = "200px";
+            img.style.minWidth = "200px";
+            img.style.height = "160px";
             let h4 = document.createElement("h4");
             h4.textContent = data[index].direction
             let h5 = document.createElement("h5");
@@ -185,7 +187,7 @@ function deleteAllActivities(classNodeFather,classNodeSon) {
 function FormatDate(fecha) {
     let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     let dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-    let date = new Date(fecha)
+    let date = new Date(fecha.substr(0, 19))
     let dayNumber = date.getDay();
     let year = date.getFullYear();
     let month = date.getMonth();

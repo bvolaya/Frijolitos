@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../css/fontello.css">
-  <link rel="stylesheet" href="../css/estilos.css">
-  <link rel="stylesheet" href="../css/estiloCrearEvento.css">
-  <script src="../js/js.js"></script>
-  <script src="../js/authenticate.js"></script>
+  <link rel="stylesheet" href="/css/fontello.css">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <link rel="stylesheet" href="/css/estiloCrearEvento.css">
+  <script src="/js/js.js"></script>
+  <script src="/js/authenticate.js"></script>
   <title>Crear Evento|Health Space</title>
 </head>
 <header>
@@ -25,18 +25,30 @@
 </header>
 <body>
   <section class="Crear-evento sombra">
-    <h4>Crear un evento</h4>
-    <input class="controls" type="text" name="palabras" id="palabras" placeholder="Ingrese la categoria">
-    <input class="controls" type="text" name="nombreEvento" id="nombreEvento" placeholder="Ingrese el nombre del evento">
-    <b>Ingrese la fecha del evento:</b>
-    <input class="controls" type="datetime-local" name="fecha" id="fecha">
-    <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese la direccion del evento">
-    <b>Ingrese una descripción del Evento:</b>
-    <textarea name="textarea" id="descripcion" rows="3" cols="60"></textarea>
-    <p>Estoy de acuerdo con <input type="radio"><a href="#">Terminos y Condiciones</a></p>
-    <input class="botons" type="button" onclick="getData()" value="Crear">
-    <p><a href="/events">volver</a></p>
+    <form action="" id="form">
+
+      <h4>Crear un evento</h4>
+      <div style="width: 100%; text-align: center;">
+        <img src="" alt="Imagen de la actividad" id="img" data-path="" style="width: 50%;">
+      </div>
+      <input class="controls" type="text" name="palabras" id="palabras" placeholder="Ingrese la categoria">
+      <input class="controls" type="text" name="nombreEvento" id="nombreEvento" placeholder="Ingrese el nombre del evento">
+      <b>Ingrese la fecha del evento:</b>
+      <input class="controls" type="datetime-local" name="fecha" id="fecha">
+      <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese la direccion del evento">
+      <b>Ingrese una descripción del Evento:</b>
+      <textarea name="textarea" id="descripcion" rows="3" cols="60"></textarea>
+      <b>Ingrese una imagen</b>
+      <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+      <p>Estoy de acuerdo con <input type="radio" required=""><a href="#">Terminos y Condiciones</a></p>
+      <input class="botons" type="submit" value="Crear">
+      <p><a href="javascript:;window.history.back();">volver</a></p>
+
+    </form>
   </section>
-  <script src="../js/crearEvento.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="/js/crearEvento.js"></script>
+  
 </body>
 </html>
