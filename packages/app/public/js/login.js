@@ -17,7 +17,7 @@ function login(){
       redirect: "follow",
     };
 
-    fetch("http://localhost:3000/login", requestOptions)
+    fetch("https://api.healthspace.club/login", requestOptions)
       .then((response) => {
           if (response.ok) {
             return response.text();
@@ -31,7 +31,7 @@ function login(){
       .then((result) => {
         console.log(result);
         sessionStorage.setItem("user", result);
-        window.location.href ="http://localhost:5000/events";
+        window.location.href ="https://healthspace.club/events";
       })
       .catch((error) => {
         console.log("error", error);

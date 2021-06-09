@@ -13,7 +13,7 @@ function obtenerActividad () {
     };
     ///////////////REVISAR LOCALHOST////////////////////
     let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
-    fetch(`http://localhost:3000/activities/${idUser}`, requestOptions)
+    fetch(`https://api.healthspace.club/activities/${idUser}`, requestOptions)
         .then(response => response.text())
         .then(result => {
             let data = JSON.parse(result).data;
@@ -83,13 +83,13 @@ function getData() {
         redirect: "follow",
         };
 
-        fetch("http://localhost:5000/activitiesMod", requestOptions)
+        fetch("https://healthspace.club/activitiesMod", requestOptions)
         .then((response) => response.text())
         .then((result) => {
             console.log(result)
             alert("Actividad modificada")
             window.location.href =
-              "http://localhost:5000/html/tableroDeEventosPsicologo.html";
+              "https://healthspace.club/html/tableroDeEventosPsicologo.html";
         })
         .catch((error) => {
             console.log("error", error);
@@ -99,14 +99,14 @@ function getData() {
     } catch (error) {
         alert("Tienes que loguearte");
         window.location.href =
-          "http://localhost:5000/html/login.html";
+          "https://healthspace.club/html/login.html";
         }
     }
     
 }
 function getActivity(Id){
     
-    fetch(`http://localhost:5000/obtenerActividad/${id}`, requestOptions)
+    fetch(`https://healthspace.club/obtenerActividad/${id}`, requestOptions)
         .then(response => response.text())
         .then(result => {
             let data = JSON.parse(result).data;

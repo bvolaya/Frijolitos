@@ -8,9 +8,9 @@ if (document.addEventListener){
 function authenticate (){
     let path = location.pathname
     if (!sessionStorage.getItem('user') && path !== '/login'){
-        window.location.href = "http://localhost:5000/login"
+        window.location.href = "https://healthspace.club/login"
     }else if(sessionStorage.getItem('user') && path === '/login'){
-        window.location.href = "http://localhost:5000/events"
+        window.location.href = "https://healthspace.club/events"
     }
 }
 

@@ -47,7 +47,7 @@ function insertAgenda() {
         redirect: 'follow'
     };
 
-    fetch(`http://localhost:3000/activities/${idUser}/profile`, requestOptions)
+    fetch(`https://api.healthspace.club/activities/${idUser}/profile`, requestOptions)
         .then(response => response.text())
         .then(result => {
             let data = JSON.parse(result).data;
@@ -161,7 +161,7 @@ function eliminarActividad(_this) {
                 redirect: "follow",
             };
 
-            fetch("http://localhost:3000/eliminarActividadUser", requestOptions)
+            fetch("https://api.healthspace.club/eliminarActividadUser", requestOptions)
             .then((response) => {
                 if (response.ok) {
                     return response.text();

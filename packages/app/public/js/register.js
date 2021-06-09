@@ -23,7 +23,7 @@ function register(){
         redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/register", requestOptions)
+    fetch("https://api.healthspace.club/register", requestOptions)
       .then((response) => {
           if (response.status !== 201){
               throw new Error("Error en el registro")
@@ -34,7 +34,7 @@ function register(){
       .then((result) => {
           const confirm = Swal.mixin({
               didClose: (toast) => {
-                  window.location.href = "http://localhost:5000/login";
+                  window.location.href = "https://healthspace.club/login";
               }
           })
           confirm.fire(

@@ -12,7 +12,7 @@ function obtenerActividad () {
         redirect: 'follow'
     };
     let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
-    fetch(`http://localhost:3000/activities/${idUser}`, requestOptions)
+    fetch(`https://api.healthspace.club/activities/${idUser}`, requestOptions)
         .then(response => response.text())
         .then(result => {
             let data = JSON.parse(result).data;
@@ -34,7 +34,7 @@ function search(event) {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:3000/search/" + search.value, requestOptions)
+        fetch("https://api.healthspace.club/search/" + search.value, requestOptions)
             .then(response => response.text())
             .then(result => {
                 let data = JSON.parse(result).data
@@ -74,7 +74,7 @@ function suscribe(event) {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:3000/suscribe", requestOptions)
+        fetch("https://api.healthspace.club/suscribe", requestOptions)
             .then(response => response.text())
             .then(result => {
 

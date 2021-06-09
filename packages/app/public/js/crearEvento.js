@@ -37,7 +37,7 @@ document.getElementById("form").addEventListener("submit", (e)=>{
         redirect: 'follow'
     };
 
-    fetch(`http://localhost:3000/activities`, requestOptions)
+    fetch(`https://api.healthspace.club/activities`, requestOptions)
     .then((response) => {
         if (response.ok) {
             return response.text();
@@ -53,7 +53,7 @@ document.getElementById("form").addEventListener("submit", (e)=>{
         // console.log(result)
         const confirm = Swal.mixin({
             didClose: (toast) => {
-                window.location.href = "http://localhost:5000/dashboard/psychology"
+                window.location.href = "https://healthspace.club/dashboard/psychology"
             }
         })
         confirm.fire(
@@ -88,7 +88,7 @@ window.addEventListener('load', (e)=>{
         document.querySelector("input.botons").value = "Actualizar";
         document.querySelector("input[type='radio']").parentNode.remove()
         document.title = "Modificar Evento|Health Space";
-        fetch(`http://localhost:3000/obtenerActividad/${id_actividad}`, requestOptions)
+        fetch(`https://api.healthspace.club/obtenerActividad/${id_actividad}`, requestOptions)
             .then(response => {
                 if (response.ok) {
                     return response.text();

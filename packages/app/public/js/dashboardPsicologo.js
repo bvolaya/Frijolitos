@@ -17,7 +17,7 @@ function obtenerActividad () {
     };
     ///////////////////REVISAR LOCALHOST/////////////
     let idUser= JSON.parse(sessionStorage.getItem('user')).data.id
-    fetch(`http://localhost:3000/activitiesPsycology/${idUser}`, requestOptions)
+    fetch(`https://api.healthspace.club/activitiesPsycology/${idUser}`, requestOptions)
         .then(response => { 
             if (response.ok) {
                 return response.text();
@@ -56,7 +56,7 @@ function obtenerActividad () {
 //         redirect: 'follow'
 // };
 
-//     fetch("http://localhost:3000/activities", requestOptions)
+//     fetch("https://api.healthspace.club/activities", requestOptions)
 //         .then(response => response.text())
 //         .then(result => console.log(result))
 //         .catch(error => console.log('error', error));

@@ -24,7 +24,7 @@ function getMetric(){
             redirect: 'follow'
         };
 
-        fetch(`http://localhost:3000/metric/${idUser}`, requestOptions)
+        fetch(`https://api.healthspace.club/metric/${idUser}`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 let data = JSON.parse(result);

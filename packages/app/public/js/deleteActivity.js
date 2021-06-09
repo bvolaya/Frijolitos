@@ -26,7 +26,7 @@ function Eliminar(_this) {
                 redirect: "follow",
             };
 
-            fetch("http://localhost:3000/activities", requestOptions)
+            fetch("https://api.healthspace.club/activities", requestOptions)
                 .then((response) => {
                     if (response.ok) {
                         return response.text();

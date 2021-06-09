@@ -11,7 +11,7 @@ window.addEventListener("load", ()=>{
         redirect: "follow",
     };
 
-    fetch(`http://localhost:3000/activityDetails/${id}`, requestOptions)
+    fetch(`https://api.healthspace.club/activityDetails/${id}`, requestOptions)
         .then((response) => {
             if (response.ok) {
                 return response.text();
@@ -164,7 +164,7 @@ function suscribe(event) {
         redirect: 'follow'
     };
     
-    fetch("http://localhost:3000/suscribe", requestOptions)
+    fetch("https://api.healthspace.club/suscribe", requestOptions)
         .then(response => {
             if (response.ok) {
                 return response.text();
@@ -228,7 +228,7 @@ function eliminarActividad(_this) {
                 redirect: "follow",
             };
 
-            fetch("http://localhost:3000/eliminarActividadUser", requestOptions)
+            fetch("https://api.healthspace.club/eliminarActividadUser", requestOptions)
                 .then((response) => {
                     if (response.ok) {
                         return response.text();
