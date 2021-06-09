@@ -7,6 +7,7 @@ app.use('/css',express.static(__dirname +'/public/css'));
 app.use('/js',express.static(__dirname +'/public/js'));
 app.use('/img',express.static(__dirname +'/public/img'));
 app.use('/font',express.static(__dirname +'/public/font'));
+app.use('/lib',express.static(__dirname +'/public/lib'));
 
 // Rutas de Inicio
 app.get('/', (request,response)=>{
